@@ -10,7 +10,6 @@ import {
 import { TranslateModule } from '@ngx-translate/core';
 import { TranslationModule } from '../../modules/i18n';
 import { LayoutComponent } from './layout.component';
-import { ExtrasModule } from '../partials/layout/extras/extras.module';
 import { Routing } from '../../pages/routing';
 import { HeaderComponent } from './components/header/header.component';
 import { ContentComponent } from './components/content/content.component';
@@ -24,6 +23,7 @@ import {
   DrawersModule,
   DropdownMenusModule,
   ModalsModule,
+  ExtrasModule
 } from '../partials';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { SidebarLogoComponent } from './components/sidebar/sidebar-logo/sidebar-logo.component';
@@ -35,7 +35,6 @@ import { ExtendedComponent } from './components/toolbar/extended/extended.compon
 import { ReportsComponent } from './components/toolbar/reports/reports.component';
 import { SaasComponent } from './components/toolbar/saas/saas.component';
 import {SharedModule} from "../shared/shared.module";
-import {ThemeModeModule} from "../partials/layout/theme-mode-switcher/theme-mode.module";
 
 const routes: Routes = [
   {
@@ -79,8 +78,7 @@ const routes: Routes = [
     DropdownMenusModule,
     NgbTooltipModule,
     TranslateModule,
-    SharedModule,
-    ThemeModeModule
+    SharedModule
   ],
   exports: [RouterModule],
 })

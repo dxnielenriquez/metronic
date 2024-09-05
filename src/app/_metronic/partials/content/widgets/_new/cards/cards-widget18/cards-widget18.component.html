@@ -8,7 +8,7 @@
       <div class="col-sm-6 mb-10 mb-sm-0">
         <!--begin::Image-->
         <div class="bgi-no-repeat bgi-position-center bgi-size-cover card-rounded min-h-400px min-h-sm-100 h-100"
-          [ngStyle]="{'background-size': '100% 100%', 'background-image': 'url(' + image + ')'}">
+             [ngStyle]="{'background-size': '100% 100%', 'background-image': 'url(' + image + ')'}">
         </div>
         <!--end::Image-->
       </div>
@@ -103,7 +103,7 @@
               <div class="border border-gray-300 border-dashed rounded min-w-100px w-100 py-2 px-4 mb-3">
                 <!--begin::Number-->
                 <span class="fs-6 text-gray-700 fw-bold">$<span class="ms-n1" data-kt-countup="true"
-                    data-kt-countup-value="284,900.00">0</span></span>
+                                                                data-kt-countup-value="284,900.00">0</span></span>
                 <!--end::Number-->
 
                 <!--begin::Label-->
@@ -121,13 +121,13 @@
             <!--begin::Users group-->
             <div class="symbol-group symbol-hover flex-nowrap">
               <div *ngFor="let card of cards" class="symbol symbol-35px symbol-circle" data-bs-toggle="tooltip"
-                [title]="card.name">
+                   [title]="card.name">
                 <ng-container *ngIf="card.src">
                   <img alt="Pic" [src]="card.src" />
                 </ng-container>
                 <ng-container *ngIf="!card.src">
                   <span class="symbol-label fw-bold"
-                    [ngClass]="'bg-' + card.state + ' ' + 'text-inverse-' + card.state">{{card.initials}}</span>
+                        [ngClass]="'bg-' + card.state + ' ' + 'text-inverse-' + card.state">{{card.initials}}</span>
 
                 </ng-container>
               </div>

@@ -7,7 +7,6 @@ export const baseUrlInterceptor: HttpInterceptorFn = (req, next) => {
 
   if(req.url == 'login')
     baseUrl = environment.api.baseUrl.replace('/web','');
-  console.log(baseUrl)
 
   if (req.url.startsWith('http',0) || req.url.startsWith('https',0) ) {
     return next(req);

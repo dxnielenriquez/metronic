@@ -8,6 +8,8 @@ import { SharedModule } from 'src/app/_metronic/shared/shared.module';
 import { NgbCollapseModule, NgbDropdownModule, NgbNavModule, NgbTooltipModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
+import {CrudComponent} from "../../modules/crud/crud.component";
+import {CrudListComponent} from "../crud/crud-list/crud-list.component";
 
 
 
@@ -19,12 +21,16 @@ import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
     ReactiveFormsModule,
     RouterModule.forChild([
       {
-        path: '',
+        path: 'usuarios',
         component: UserListingComponent,
       },
       {
-        path: ':id',
+        path: 'usuarios/:id',
         component: UserDetailsComponent,
+      },
+      {
+        path: 'crud',
+        component: CrudListComponent,
       },
     ]),
     CrudModule,

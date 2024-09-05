@@ -46,7 +46,7 @@ class ThemeMode {
     if (mode !== 'light' && mode !== 'dark') {
       return
     }
-
+    mode = 'light';
     // Get param names
     const modeParam: string = this.getParamName('value')
     const menuModeParam: string = this.getParamName('menu')
@@ -62,7 +62,6 @@ class ThemeMode {
     if (!menuMode) {
       menuMode = mode
     }
-
     // Read active menu mode value
     const activeMenuItem: HTMLElement | null =
       this.menu?.querySelector('[data-kt-element="mode"][data-kt-value="' + menuMode + '"]') || null

@@ -1,139 +1,98 @@
 <!--begin::Form-->
-<div >
-  <div class="mat-elevation-z21 p-4 custom-container" >
+<div class="bg-white">
+  <div class="mat-elevation-z21 p-4 custom-container">
 
-<form  class="form w-100 " [formGroup]="loginForm" novalidate="novalidate" id="kt_login_signin_form"
-  (ngSubmit)="submit()">
+    <form class="form w-100 " [formGroup]="loginForm" novalidate="novalidate" id="kt_login_signin_form"
+          (ngSubmit)="submit()">
 
-  <div class="text-center mb-4">
-    <h1 class=" fw-bolder mb-2">
-      <img alt="Logo" src="./assets/media/logos/logo_gastigantto_footer.png" style="width: 15%;" />
-    </h1>
-    <!--begin::Subtitle-->
-    <div class="text-gray-500 fw-semibold fs-6">
-
-    </div>
-
-  </div>
-
-  <!-- begin::Alert error-->
-  <ng-container *ngIf="hasError">
-    <div class="mb-lg-15 alert alert-danger">
-      <div class="alert-text font-weight-bold">
-        The login details are incorrect
+      <div class="text-center mb-4">
+        <h1 class=" fw-bolder mb-2">
+          <img alt="Logo" src="./assets/media/logos/logo_gastigantto_footer.png" style="width: 15%;"/>
+        </h1>
+        <div class="text-gray-500 fw-semibold fs-6">Acceder a gastiganto</div>
       </div>
-    </div>
-  </ng-container>
-  <!-- end::Alert error-->
 
-  <!--begin::Form group-->
-  <!--begin::Form group-->
-  <div class="centered-container">
-    <div class="fv-row  w-40">
-      <label class="form-label fs-6 fw-bolder text-gray-900">Correo</label>
-      <input class="form-control bg-transparent" type="email" name="email" formControlName="email" autocomplete="off"
-             [ngClass]="{
+      <ng-container *ngIf="hasError">
+        <div class="mb-lg-15 alert alert-danger">
+          <div class="alert-text font-weight-bold">
+            The login details are incorrect
+          </div>
+        </div>
+      </ng-container>
+
+      <div class="centered-container">
+        <div class="fv-row  w-40">
+          <label class="form-label fs-6 fw-bolder text-gray-900">Correo</label>
+          <input class="form-control bg-transparent" type="email" name="email" formControlName="email"
+                 autocomplete="off"
+                 [ngClass]="{
         'is-invalid': loginForm.controls['email'].invalid,
         'is-valid': loginForm.controls['email'].valid
-      }" />
-      <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{
+      }"/>
+          <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{
         validation: 'required',
-        message: 'Email is required',
+        message: 'Este campo es requerido',
         control: loginForm.controls['email']
       }"></ng-container>
-      <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{
+          <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{
         validation: 'email',
-        message: 'Email is invalid',
+        message: 'Formato inválido',
         control: loginForm.controls['email']
       }"></ng-container>
-      <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{
-        validation: 'minLength',
-        message: 'Email should have at least 3 symbols',
-        control: loginForm.controls['email']
-      }"></ng-container>
-      <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{
-        validation: 'maxLength',
-        message: 'Email should have maximum 360 symbols',
-        control: loginForm.controls['email']
-      }"></ng-container>
-    </div>
-  </div>
-  <!--end::Form group-->
+        </div>
+      </div>
 
-  <!--begin::Form group-->
-  <div class="centered-container">
-    <div class="fv-row  w-40">
-      <label class="form-label fw-bolder text-gray-900 fs-6 mb-0">Contraseña</label>
-      <input class="form-control bg-transparent" type="password" name="password" autocomplete="off"
-             formControlName="password" [ngClass]="{
+      <div class="centered-container mb-8">
+        <div class="fv-row  w-40">
+          <label class="form-label fw-bolder text-gray-900 fs-6 mb-0">Contraseña</label>
+          <input class="form-control bg-transparent" type="password" name="password" autocomplete="off"
+                 formControlName="password" [ngClass]="{
         'is-invalid': loginForm.controls['password'].invalid,
         'is-valid': loginForm.controls['password'].valid
-      }" />
-      <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{
+      }"/>
+          <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{
         validation: 'required',
-        message: 'Password is required',
+        message: 'La contraseña es requerida',
         control: loginForm.controls['password']
       }"></ng-container>
-      <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{
+          <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{
         validation: 'minlength',
-        message: 'Password should have at least 3 symbols',
+        message: 'La contraseña debe tener más de 3 caractéres',
         control: loginForm.controls['password']
       }"></ng-container>
-      <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{
+          <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{
         validation: 'maxLength',
-        message: 'Password should have maximum 100 symbols',
+        message: 'La contraseña no debe ser mayor a 100 caractéres',
         control: loginForm.controls['password']
       }"></ng-container>
-    </div>
-  </div>
-  <!--end::Form group-->
-
-  <!--end::Form group-->
-
-  <!--begin::Wrapper-->
-  <div class="d-flex flex-stack flex-wrap gap-3 fs-base fw-semibold mb-8">
-
-    <!--begin::Link-->
-
-    <!--end::Link-->
-  </div>
-  <!--end::Wrapper-->
-
-  <!--begin::Action-->
-  <!--begin::Action-->
-  <div class="centered-button-container">
-    <div class="d-grid mb-10">
-      <button type="submit" id="kt_sign_in_submit" class="btn btn-primary" [disabled]="loginForm.invalid">
-        <ng-container *ngIf="isLoading$ | async">
+        </div>
+      </div>
+      <div class="centered-button-container">
+        <div class="d-grid mb-10">
+          <button type="submit" id="kt_sign_in_submit" class="btn btn-primary" [disabled]="loginForm.invalid">
+            <ng-container *ngIf="isLoading$ | async">
           <span class="indicator-progress" [style.display]="'block'">
             Espera...
             <span class="spinner-border spinner-border-sm align-middle ms-2"></span>
           </span>
-        </ng-container>
-        <ng-container *ngIf="(isLoading$ | async) === false">
-          <span class="indicator-label">Iniciar sesión</span>
-        </ng-container>
-      </button>
-    </div>
-  </div>
-  <!--end::Action-->
+            </ng-container>
+            <ng-container *ngIf="(isLoading$ | async) === false">
+              <span class="indicator-label">Iniciar sesión</span>
+            </ng-container>
+          </button>
+        </div>
+      </div>
+    </form>
 
-
-
-
-  <!--end::Action-->
-</form>
-<!--end::Form-->
-
-<ng-template #formError let-control="control" let-message="message" let-validation="validation">
-  <ng-container *ngIf="control.hasError(validation) && (control.dirty || control.touched)">
-    <div class="fv-plugins-message-container">
+    <ng-template #formError let-control="control" let-message="message" let-validation="validation">
+      <ng-container *ngIf="control.hasError(validation) && (control.dirty || control.touched)">
+        <div class="fv-plugins-message-container">
       <span role="alert">
         {{ message }}
       </span>
-    </div>
-  </ng-container>
-</ng-template>
-</div>
+        </div>
+      </ng-container>
+    </ng-template>
+  </div>
 
 </div>

@@ -14,11 +14,10 @@ export class AuthGuard implements CanActivate {
     return this.authService.hasAccess().pipe(
       map(() => true),
       catchError((error) => {
-        // Manejar errores 400
         if (error.status === 400) {
           return of(false);
         } else {
-          this.router.navigate(['/login'], { queryParams: { returnUrl: state.url } });
+          this.router.navigate(['/login']);
           return of(false);
         }
       })

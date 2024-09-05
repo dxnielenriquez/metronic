@@ -66,10 +66,6 @@ export class LayoutComponent implements OnInit, OnDestroy {
   // scrolltop
   scrolltopDisplay: boolean;
 
-  @ViewChild('ktAside', { static: true }) ktAside: ElementRef;
-  @ViewChild('ktHeaderMobile', { static: true }) ktHeaderMobile: ElementRef;
-  @ViewChild('ktHeader', { static: true }) ktHeader: ElementRef;
-
   constructor(
     private initService: LayoutInitService,
     private layout: LayoutService,

@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { IRoleModel } from './role.service';
 
 export interface DataTablesResponse {
     draw?: number;
@@ -22,7 +21,6 @@ export interface IUserModel {
     profile_photo_path?: null | string;
     updated_at?: string;
     password?: string;
-    roles?: IRoleModel[];
     role?: string;
 }
 
@@ -32,7 +30,6 @@ export interface IUserModel {
 export class UserService {
 
     private apiUrl = 'https://preview.keenthemes.com/starterkit/metronic/laravel/api/v1/users';
-    // private apiUrl = 'http://127.0.0.1:8000/api/v1/users';
 
     constructor(private http: HttpClient) { }
 
