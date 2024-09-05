@@ -3,10 +3,10 @@
     <!--begin::Card title-->
     <div class="card-title">
       <!--begin::Search-->
-      <div class="d-flex align-items-center position-relative my-1">
-        <app-keenicon name="magnifier" class="fs-3 position-absolute ms-5"></app-keenicon>
-        <input type="text" data-action="filter" class="form-control form-control-solid w-250px ps-12" placeholder="Buscar Usuarios">
-      </div>
+<!--      <div class="d-flex align-items-center position-relative my-1">-->
+<!--        <app-keenicon name="magnifier" class="fs-3 position-absolute ms-5"></app-keenicon>-->
+<!--        <input type="text" data-action="filter" class="form-control form-control-solid w-250px ps-12" placeholder="Buscar Usuarios">-->
+<!--      </div>-->
       <!--end::Search-->
     </div>
     <!--begin::Card title-->
@@ -16,10 +16,10 @@
       <!--begin::Toolbar-->
       <div class="d-flex justify-content-end">
         <!--begin::Add user-->
-        <button type="button" class="btn btn-primary" data-action="create">
-          Añadir Usuario
-        </button>
-        <!--end::Add user-->
+<!--        <button type="button" class="btn btn-primary" data-action="create">-->
+<!--          Añadir-->
+<!--        </button>-->
+<!--        &lt;!&ndash;end::Add user&ndash;&gt;-->
       </div>
       <!--end::Toolbar-->
     </div>
@@ -27,7 +27,7 @@
   </div>
 
   <div class="card-body pt-0">
-    <app-crud [datatableConfig]="datatableConfig" route="/apps/users" (deleteEvent)="delete($event)" (editEvent)="edit($event)" (createEvent)="create()" [reload]="reloadEvent" [modal]="formModal"></app-crud>
+    <app-crud></app-crud>
   </div>
 </div>
 

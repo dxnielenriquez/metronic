@@ -1,0 +1,53 @@
+<div class="header">
+  <span class="header-title">{{ isNewUser ? 'Crear nueva' : 'Actualizar' }} encuesta</span>
+  <div class="header-buttons">
+
+    <button class="custom-button" mat-raised-button (click)="backRoute()">
+
+      Regresar
+    </button>
+
+    <button class="custom-button" mat-raised-button (click)="onSubmit()">
+      <span class="menu-icon">
+
+      </span>
+      <span>{{ isNewUser ? 'Guardar' : 'Actualizar' }}</span>
+    </button>
+  </div>
+</div>
+
+<div class="nav-link table-container">
+  <div class="m-4">
+    <form class="my-form hint input-responsive" [formGroup]="form">
+
+      <div class="fv-row mb-7 my-form-field">
+        <!-- Campo de Título -->
+        <label class="required fw-semibold fs-6 mb-2">Título</label>
+        <input type="text" class="form-control form-control-solid" formControlName="titulo" maxlength="25" autocomplete="off" required />
+        <div class="fv-plugins-message-container fv-plugins-message-container--enabled invalid-feedback"></div>
+      </div>
+
+      <div class="fv-row mb-7 my-form-field">
+        <!-- Campo de Descripción -->
+        <label class="required fw-semibold fs-6 mb-2">Descripción</label>
+        <input type="text" class="form-control form-control-solid" formControlName="descripcion" maxlength="255" autocomplete="off" required />
+        <div class="fv-plugins-message-container fv-plugins-message-container--enabled invalid-feedback"></div>
+      </div>
+
+      <div class="fv-row mb-7 my-form-field">
+        <!-- Campo de Criterio mínimo -->
+        <label class="required fw-semibold fs-6 mb-2">Criterio mínimo</label>
+        <input type="text" class="form-control form-control-solid" formControlName="ponderacion_baja" maxlength="25" autocomplete="off" required />
+        <div class="fv-plugins-message-container fv-plugins-message-container--enabled invalid-feedback"></div>
+      </div>
+
+      <div class="fv-row mb-7 my-form-field">
+        <!-- Campo de Criterio máximo -->
+        <label class="required fw-semibold fs-6 mb-2">Criterio máximo</label>
+        <input type="text" class="form-control form-control-solid" formControlName="ponderacion_alta" maxlength="25" autocomplete="off" required />
+        <div class="fv-plugins-message-container fv-plugins-message-container--enabled invalid-feedback"></div>
+      </div>
+
+    </form>
+  </div>
+</div>

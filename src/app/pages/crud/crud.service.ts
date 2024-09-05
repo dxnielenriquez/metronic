@@ -39,7 +39,9 @@ export class CrudService {
     return this._http.get(`encuestas/${id}`);
   }
 
-
+  public getRole(): any {
+    return JSON.parse(localStorage.getItem('role')!);
+  }
 
   public update(id: number, body: any): Observable<any> {
     return this._http.put(`encuestas/${id}`, body);
