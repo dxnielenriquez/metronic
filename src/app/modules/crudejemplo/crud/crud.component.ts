@@ -1,9 +1,8 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {MatTableDataSource} from "@angular/material/table";
-import { PageEvent} from "@angular/material/paginator";
 import {User} from "../../auth";
-import {CrudService} from "../../../pages/crud/crud.service";
+import {CrudService} from "../crud.service";
 
 @Component({
   selector: 'app-crud',
@@ -22,17 +21,12 @@ export class CrudComponent implements OnInit {
   total = 0;
   pages = [10, 25, 50, 100];
   displayedColumns: string[] = ['titulo', 'descripcion', 'destinatario', 'ponderacion_baja', 'ponderacion_alta', 'actions'];
-  typingTimer: any;
-  typingInterval = 700;
-  lastLength = 0;
   isLoading = true;
-  private idInAction: number;
 
   constructor(
     private _userService: CrudService,
     private _router: Router,
     private _activatedRoute: ActivatedRoute,
-    // private _layoutUtilsService: LayoutUtilsService,
   ) {
   }
 
@@ -80,35 +74,6 @@ export class CrudComponent implements OnInit {
     //     this.getUsuarios();
     //   });
     // });
-  }
-
-  onPageChange(event: PageEvent) {
-    this.page = event.pageIndex + 1;
-    this.perPage = event.pageSize;
-    this.getUsuarios();
-  }
-
-  onKeyUp(ev: any) {
-    clearTimeout(this.typingTimer);
-    this.typingTimer = setTimeout(() => {
-      this.filtrarBusqueda(ev.target.value)
-    }, this.typingInterval);
-  }
-
-  onKeyDown() {
-    clearTimeout(this.typingTimer);
-  }
-
-  filtrarBusqueda(filterValue: string) {
-    if (filterValue.length != 0) {
-      this.query = filterValue.trim().toLowerCase();
-      this.getUsuarios();
-    } else if (this.lastLength != 0) {
-      this.query = '';
-      this.getUsuarios();
-    }
-
-    this.lastLength = filterValue.length;
   }
 
   editEncuesta(id: any) {

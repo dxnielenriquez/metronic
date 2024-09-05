@@ -7,7 +7,6 @@ import { SharedModule } from 'src/app/_metronic/shared/shared.module';
 import { NgbCollapseModule, NgbDropdownModule, NgbNavModule, NgbTooltipModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
-import {CrudListComponent} from "../crud/crud-list/crud-list.component";
 import {
   MatCell, MatCellDef,
   MatColumnDef,
@@ -72,10 +71,6 @@ import {MatSelectModule} from "@angular/material/select";
         path: 'usuarios/edit/:id',
         component: CrudEditComponent,
       },
-      {
-        path: 'crud',
-        component: CrudListComponent,
-      },
     ]),
     CrudModule,
     SharedModule,
@@ -84,7 +79,6 @@ import {MatSelectModule} from "@angular/material/select";
     NgbCollapseModule,
     NgbTooltipModule,
     SweetAlert2Module.forChild(),
-    CrudListComponent,
   ]
 })
 export class UserModule { }
