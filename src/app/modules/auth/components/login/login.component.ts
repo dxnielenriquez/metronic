@@ -1,27 +1,23 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Subscription, Observable } from 'rxjs';
+import {Component, OnInit} from '@angular/core';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {Observable} from 'rxjs';
 import {AuthService, LoginResponse} from '../../services/auth.service';
-import { ActivatedRoute, Router } from '@angular/router';
-import {environment} from "../../../../../environments/environment";
+import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss'],
 })
-export class LoginComponent implements OnInit, OnDestroy {
+export class LoginComponent implements OnInit {
   defaultAuth: any = {
-    email: 'admin@demo.com',
-    password: 'demo',
+    email: 'depasie2019@gmail.com',
+    password: 'secret',
   };
   loginForm: FormGroup;
   hasError: boolean;
-  returnUrl: string;
   isLoading$: Observable<boolean>;
   appId: string = '';
-
-  private unsubscribe: Subscription[] = [];
 
   constructor(
     private fb: FormBuilder,
@@ -30,20 +26,15 @@ export class LoginComponent implements OnInit, OnDestroy {
     private router: Router
   ) {
     this.isLoading$ = this.authService.isLoading$;
-    // redirect to home if already logged in
 
   }
 
   ngOnInit(): void {
+    if(this.authService.isAuthenticated()) {
+      this.router.navigate(['/dashboard']).then();
+    }
     this.initForm();
-    // get return url from route parameters or default to '/'
-    this.returnUrl =
-      this.route.snapshot.queryParams['returnUrl'.toString()] || '/dashboard';
-  }
 
-  // convenience getter for easy access to form fields
-  get f() {
-    return this.loginForm.controls;
   }
 
   initForm() {
@@ -54,7 +45,7 @@ export class LoginComponent implements OnInit, OnDestroy {
           Validators.required,
           Validators.email,
           Validators.minLength(3),
-          Validators.maxLength(320), // https://stackoverflow.com/questions/386294/what-is-the-maximum-length-of-a-valid-email-address
+          Validators.maxLength(320),
         ]),
       ],
       password: [
@@ -72,14 +63,9 @@ export class LoginComponent implements OnInit, OnDestroy {
     const loginData = this.loginForm.value;
 
     this.authService.login(loginData.email, loginData.password, this.appId)
-      .subscribe((response: LoginResponse) => {
-
-        this.router.navigate(['/dashboard']);
+      .subscribe((_) => {
+        this.router.navigate(['/dashboard']).then();
       })
   }
 
-
-  ngOnDestroy() {
-    this.unsubscribe.forEach((sb) => sb.unsubscribe());
-  }
 }

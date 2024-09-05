@@ -1,0 +1,79 @@
+<!--<div class="header">-->
+<!--  <span class="header-title">Encuestas</span>-->
+<!--  <div class="header-buttons">-->
+<!--    <button class="custom-button" matTooltip="Crear nueva encuesta" mat-raised-button [routerLink]="['add']">-->
+<!--      <mat-icon>person_add</mat-icon>-->
+<!--      Nueva encuesta-->
+<!--    </button>-->
+<!--  </div>-->
+<!--</div>-->
+<!--<div class="nav-link table-container">-->
+<!--  <div class="m-4">-->
+<!--    <mat-form-field class="search-field btnprueba">-->
+<!--      <input matInput (keyup)="onKeyUp($event)" (keydown)="onKeyDown()" type="text" placeholder="Buscar">-->
+<!--      <mat-hint>Buscar en todos los campos</mat-hint>-->
+<!--    </mat-form-field>-->
+<!--    <br><br>-->
+<!--    <div class="table-container-wrapper">-->
+
+<!--      <mat-table class="mat-elevation-z0 mat-table-list text-center" style="overflow-x: auto; min-width: 80rem"-->
+<!--                 [dataSource]="dataSourceUser"-->
+<!--                 (matSortChange)="sort($event)" matSort matSortActive="id" matSortDirection="asc" matSortDisableClear>-->
+
+<!--        <ng-container matColumnDef="titulo">-->
+<!--          <mat-header-cell *matHeaderCellDef>Título</mat-header-cell>-->
+<!--          <mat-cell *matCellDef="let cat_encuesta">{{ cat_encuesta.titulo }}</mat-cell>-->
+<!--        </ng-container>-->
+
+<!--        <ng-container matColumnDef="descripcion">-->
+<!--          <mat-header-cell *matHeaderCellDef>Descripción</mat-header-cell>-->
+<!--          <mat-cell *matCellDef="let cat_encuesta">{{ cat_encuesta.descripcion }}</mat-cell>-->
+<!--        </ng-container>-->
+
+<!--        <ng-container matColumnDef="destinatario">-->
+<!--          <mat-header-cell *matHeaderCellDef>Destinatario</mat-header-cell>-->
+<!--          <mat-cell *matCellDef="let cat_encuesta">{{ cat_encuesta.destinatario }}</mat-cell>-->
+<!--        </ng-container>-->
+
+<!--        <ng-container matColumnDef="ponderacion_baja">-->
+<!--          <mat-header-cell *matHeaderCellDef>Criterio mínimo</mat-header-cell>-->
+<!--          <mat-cell *matCellDef="let cat_encuesta">{{ cat_encuesta.ponderacion_baja }}</mat-cell>-->
+<!--        </ng-container>-->
+
+<!--        <ng-container matColumnDef="ponderacion_alta">-->
+<!--          <mat-header-cell *matHeaderCellDef>Criterio máximo</mat-header-cell>-->
+<!--          <mat-cell *matCellDef="let cat_encuesta">{{ cat_encuesta.ponderacion_alta }}</mat-cell>-->
+<!--        </ng-container>-->
+
+<!--        <ng-container matColumnDef="actions">-->
+<!--          <mat-header-cell *matHeaderCellDef></mat-header-cell>-->
+<!--          <mat-cell *matCellDef="let cat_encuesta" style="overflow: visible;">-->
+
+<!--            <button [hidden]="cat_encuesta.deleted_at || cat_encuesta.id == 1" type="button" (click)="editEncuesta(cat_encuesta.id)" mat-icon-button matTooltip="Editar encuesta">-->
+<!--              <mat-icon class="small-icon">create</mat-icon>-->
+<!--            </button>&nbsp; &nbsp;-->
+
+<!--            <button [hidden]="cat_encuesta.id == 1" type="button" (click)="deleteEncuesta(cat_encuesta)" mat-icon-button [matTooltip]=" cat_encuesta.deleted_at ? 'Activar' : 'Eliminar'">-->
+<!--              <mat-icon class="small-icon">{{cat_encuesta.deleted_at ? 'check' : 'delete'}}</mat-icon>-->
+<!--            </button>-->
+
+<!--          </mat-cell>-->
+<!--        </ng-container>-->
+
+<!--        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>-->
+<!--        <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>-->
+<!--      </mat-table>-->
+<!--      <div class="mat-table__message ng-star-inserted" *ngIf="dataSourceUser.data.length == 0">No se encontraron-->
+<!--        registros.-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--  <mat-paginator-->
+<!--    #paginatorMat-->
+<!--    [pageIndex]="page-1"-->
+<!--    [pageSize]="perPage"-->
+<!--    [pageSizeOptions]="pages"-->
+<!--    [length]="total"-->
+<!--    (page)="onPageChange($event)">-->
+<!--  </mat-paginator>-->
+<!--</div>-->

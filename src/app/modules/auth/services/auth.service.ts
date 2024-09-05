@@ -1,15 +1,8 @@
 import {Injectable, OnDestroy} from '@angular/core';
 import {BehaviorSubject, Observable, Subscription, tap} from 'rxjs';
-import {finalize} from 'rxjs/operators';
-import {UserModel} from '../models/user.model';
-import {AuthModel} from '../models/auth.model';
-import {AuthHTTPService} from './auth-http';
 import {environment} from 'src/environments/environment';
 import {Router} from '@angular/router';
 import {HttpClient} from "@angular/common/http";
-import {TokenStorageService} from "./token-storage.service";
-
-export type UserType = UserModel | undefined;
 
 export interface User{
   nombre : string;
@@ -27,12 +20,6 @@ export interface LoginResponse {
   expiration : number;
 }
 
-export interface AccessData {
-  token: string;
-  role: any;
-  user: any;
-}
-
 
 @Injectable({
   providedIn: 'root',
@@ -40,21 +27,15 @@ export interface AccessData {
 export class AuthService implements OnDestroy {
 
   private unsubscribe: Subscription[] = [];
-  currentUser$: Observable<UserType>;
   isLoading$: Observable<boolean>;
-  currentUserSubject: BehaviorSubject<UserType>;
   isLoadingSubject: BehaviorSubject<boolean>;
 
   constructor(
-    private authHttpService: AuthHTTPService,
     private router: Router,
     private httpClient: HttpClient,
-    private tokenStorage: TokenStorageService
 
   ) {
     this.isLoadingSubject = new BehaviorSubject<boolean>(false);
-    this.currentUserSubject = new BehaviorSubject<UserType>(undefined);
-    this.currentUser$ = this.currentUserSubject.asObservable();
     this.isLoading$ = this.isLoadingSubject.asObservable();
   }
 
@@ -97,7 +78,6 @@ export class AuthService implements OnDestroy {
 
   getToken(): string {
     const tokenData = this.getStorage();
-    console.log('Token:');
     return tokenData ? tokenData.token : '';
   }
 
@@ -115,19 +95,6 @@ export class AuthService implements OnDestroy {
     localStorage.removeItem('refreshToken');
   }
 
-
-
-  private saveAccessData(accessData: AccessData) {
-    if (typeof accessData !== 'undefined') {
-      this.tokenStorage
-        .setAccessToken(accessData.token)
-        .setRefreshToken(accessData.token)
-        .setUserRoles(accessData.role)
-        .setUser(accessData.user)
-        .augustAndAirbnb(accessData.user.august_conectado, accessData.user.airbnb_conectado)
-
-    }
-  }
 
   ngOnDestroy() {
     this.unsubscribe.forEach((sb) => sb.unsubscribe());

@@ -106,9 +106,11 @@ export class CrudComponent implements OnInit, AfterViewInit, OnDestroy {
       },
     };
 
-    if (this.dtOptions.columns) {
+    if (this.
+      dtOptions.columns) {
       this.dtOptions.columns.push(actionColumn);
     }
+    console.log(this.dtOptions)
   }
 
   ngAfterViewInit(): void {
@@ -183,4 +185,7 @@ export class CrudComponent implements OnInit, AfterViewInit, OnDestroy {
       buttonsStyling: false,
     };
   }
+
+
+
 }

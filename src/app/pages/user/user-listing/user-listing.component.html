@@ -5,7 +5,7 @@
       <!--begin::Search-->
       <div class="d-flex align-items-center position-relative my-1">
         <app-keenicon name="magnifier" class="fs-3 position-absolute ms-5"></app-keenicon>
-        <input type="text" data-action="filter" class="form-control form-control-solid w-250px ps-12" placeholder="Search Users">
+        <input type="text" data-action="filter" class="form-control form-control-solid w-250px ps-12" placeholder="Buscar Usuarios">
       </div>
       <!--end::Search-->
     </div>
@@ -17,7 +17,7 @@
       <div class="d-flex justify-content-end">
         <!--begin::Add user-->
         <button type="button" class="btn btn-primary" data-action="create">
-          Add User
+          Añadir Usuario
         </button>
         <!--end::Add user-->
       </div>
@@ -37,7 +37,7 @@
 <ng-template #formModal let-modal>
   <form #myForm="ngForm" (ngSubmit)="onSubmit($event, myForm)">
     <div class="modal-header">
-      <h4 class="modal-title" id="modal-basic-title">User Details</h4>
+      <h4 class="modal-title" id="modal-basic-title">Datos</h4>
       <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
     </div>
     <div class="modal-body">
