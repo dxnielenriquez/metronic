@@ -14,7 +14,6 @@ export class CrudEditComponent implements OnInit {
   idUser: number = 0;
   isNewUser: boolean = true;
   roles: any[] = [];
-  usuario: any = {};
   rol: any;
 
   form: FormGroup;
