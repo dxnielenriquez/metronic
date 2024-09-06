@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { UserListingComponent } from './user-listing/user-listing.component';
 import {RouterLink, RouterModule} from '@angular/router';
-import { UserDetailsComponent } from './user-details/user-details.component';
 import { SharedModule } from 'src/app/_metronic/shared/shared.module';
 import { NgbCollapseModule, NgbDropdownModule, NgbNavModule, NgbTooltipModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -30,7 +29,7 @@ import {MatSelectModule} from "@angular/material/select";
 
 
 @NgModule({
-  declarations: [UserListingComponent, UserDetailsComponent],
+  declarations: [UserListingComponent, ],
   imports: [
     CommonModule,
     FormsModule,
