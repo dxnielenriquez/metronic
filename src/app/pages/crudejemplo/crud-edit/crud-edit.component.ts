@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import {CrudService} from "../crud.service";
+import {ToastService} from "../../../share/services/toast.service";
 
 @Component({
   selector: 'app-crud-edit',
@@ -23,7 +24,9 @@ export class CrudEditComponent implements OnInit {
     private _activeroute: ActivatedRoute,
     private _encuestaService: CrudService,
     private _activatedRoute: ActivatedRoute,
-    private _router: Router
+    private _router: Router,
+    private _toastService: ToastService,
+
   ) {
     this._activeroute.params.subscribe(params => {
       this.isCreateMode = params['id'] == null;
@@ -83,6 +86,26 @@ export class CrudEditComponent implements OnInit {
     this._router.navigateByUrl("catalogo/usuarios")
   }
 
+  isControlValid(controlName: string): boolean {
+    let control = this.form.controls[controlName];
+    if (!control) {
+      return false;
+    } else if (control.valid) {
+      return false;
+    }
+    return true;
+  }
+
+  isControlHasError(controlName: string, validationType: string): boolean {
+    let control = this.form.controls[controlName];
+    if (!control) {
+      return false;
+    }
+    control.updateValueAndValidity();
+    return control.hasError(validationType) && (control.dirty || control.touched);
+  }
+
+
   addUsuario(user: any) {
     this._encuestaService.create(user).subscribe(() => {
       this._router.navigate(['/catalogo/usuarios'], { relativeTo: this._activatedRoute });
@@ -91,6 +114,7 @@ export class CrudEditComponent implements OnInit {
 
   updateUsuario(id: any, user: any) {
     this._encuestaService.update(id, user).subscribe(() => {
+      this._toastService.show('Éxito', 'Usuario actualizado correctamente.', {success: true});
       this._router.navigate(['../../'], { relativeTo: this._activatedRoute });
     });
   }

@@ -5735,12 +5735,15 @@ textarea.form-control-lg {
   width: 100%;
   color: var(--bs-modal-color);
   pointer-events: auto;
-  background-color: var(--bs-modal-bg);
+  /*background-color: var(--bs-modal-bg);*/
   background-clip: padding-box;
   border: var(--bs-modal-border-width) solid var(--bs-modal-border-color);
   border-radius: var(--bs-modal-border-radius);
   box-shadow: var(--bs-modal-box-shadow);
   outline: 0;
+  background-color: #2b66c7;
+
+
 }
 
 .modal-backdrop {

@@ -1,0 +1,19 @@
+<div >
+  <div class="dialog-title">
+    <!-- <mat-progress-bar mode="indeterminate" *ngIf="viewLoading"></mat-progress-bar> -->
+  </div>
+  <div style="background-color: #711B57;">
+    <h3 style="padding: 4%; color: white;">{{data.title}}</h3>
+  </div>
+</div>
+<div >
+  <div >
+    <div style="padding: 5%;">
+      {{viewLoading ? data.waitDesciption : data.description}}
+    </div>
+  </div>
+  <div style="text-align: right; padding: 3%;">
+    <button mat-button (click)="onNoClick()">{{data.btnTextCancel}}</button>&nbsp;
+    <button mat-button (click)="onYesClick(data.timeout)" color="{{data.btnText == 'Eliminar' ? 'primary' : 'accent'}}" cdkFocusInitial [disabled]="viewLoading">{{data.btnText}}</button>
+  </div>
+</div>

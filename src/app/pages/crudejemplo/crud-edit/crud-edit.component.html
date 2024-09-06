@@ -25,6 +25,9 @@
         <label class="required fw-semibold fs-6 mb-2">Título</label>
         <input type="text" class="form-control form-control-solid" formControlName="titulo" maxlength="25" autocomplete="off" required />
         <div class="fv-plugins-message-container fv-plugins-message-container--enabled invalid-feedback"></div>
+        <mat-error *ngIf="isControlHasError('titulo','required')">El campo título es
+          <strong>requerido</strong>
+        </mat-error>
       </div>
 
       <div class="fv-row mb-7 my-form-field">
@@ -32,6 +35,10 @@
         <label class="required fw-semibold fs-6 mb-2">Descripción</label>
         <input type="text" class="form-control form-control-solid" formControlName="descripcion" maxlength="255" autocomplete="off" required />
         <div class="fv-plugins-message-container fv-plugins-message-container--enabled invalid-feedback"></div>
+        <mat-error *ngIf="isControlHasError('descripcion','required')">El campo
+          descripción es
+          <strong>requerido</strong>
+        </mat-error>
       </div>
 
       <div class="fv-row mb-7 my-form-field">
@@ -39,6 +46,9 @@
         <label class="required fw-semibold fs-6 mb-2">Criterio mínimo</label>
         <input type="text" class="form-control form-control-solid" formControlName="ponderacion_baja" maxlength="25" autocomplete="off" required />
         <div class="fv-plugins-message-container fv-plugins-message-container--enabled invalid-feedback"></div>
+        <mat-error *ngIf="isControlHasError('ponderacion_baja','required')">El campo criterio mínimo es
+          <strong>requerido</strong>
+        </mat-error>
       </div>
 
       <div class="fv-row mb-7 my-form-field">
@@ -46,6 +56,9 @@
         <label class="required fw-semibold fs-6 mb-2">Criterio máximo</label>
         <input type="text" class="form-control form-control-solid" formControlName="ponderacion_alta" maxlength="25" autocomplete="off" required />
         <div class="fv-plugins-message-container fv-plugins-message-container--enabled invalid-feedback"></div>
+        <mat-error *ngIf="isControlHasError('ponderacion_alta','required')">El campo criterio máximo es
+          <strong>requerido</strong>
+        </mat-error>
       </div>
 
     </form>

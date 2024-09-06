@@ -18,10 +18,14 @@ import {SharedModule} from "./_metronic/shared/shared.module";
 import {tokenInterceptor} from "./share/interceptors/token.interceptor";
 import {baseUrlInterceptor} from "./share/interceptors/base-url.interceptor";
 import {CrudEditComponent} from "./pages/crudejemplo/crud-edit/crud-edit.component";
+import { DeleteEntityDialogComponent } from './share/dialogs/delete-entity-dialog/delete-entity-dialog.component';
+import {errorInterceptor} from "./share/interceptors/error.interceptor";
+import {ModalAlertComponent} from "./share/components/modal-alert/modal-alert.component";
+import {ToastComponent} from "./share/components/toast/toast.component";
 
 
 @NgModule({
-  declarations: [AppComponent, CrudEditComponent],
+  declarations: [AppComponent, CrudEditComponent, DeleteEntityDialogComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
@@ -40,11 +44,13 @@ import {CrudEditComponent} from "./pages/crudejemplo/crud-edit/crud-edit.compone
     MatOption,
     MatInputModule,
     SharedModule,
-    MatIconModule
+    MatIconModule,
+
+
 
   ],
   providers: [
-    provideHttpClient(withInterceptors([baseUrlInterceptor, tokenInterceptor])),
+    provideHttpClient(withInterceptors([baseUrlInterceptor, tokenInterceptor, errorInterceptor])),
   ],
   bootstrap: [AppComponent],
 })

@@ -12,19 +12,15 @@ import {
   MatHeaderCell, MatHeaderCellDef,
   MatHeaderRow,
   MatRow,
-  MatTable,
   MatTableModule
 } from "@angular/material/table";
-import {MatPaginator} from "@angular/material/paginator";
 import {MatIcon} from "@angular/material/icon";
-import {MatButton, MatIconButton} from "@angular/material/button";
-import {MatFormField, MatFormFieldModule} from "@angular/material/form-field";
+import { MatFormFieldModule} from "@angular/material/form-field";
 import {MatSort} from "@angular/material/sort";
-import {MatTooltip} from "@angular/material/tooltip";
 import {MatInput, MatInputModule} from "@angular/material/input";
-import {MatSelectModule} from "@angular/material/select";
 import {CrudModule} from "../crudejemplo/crud/crud.module";
 import {CrudEditComponent} from "../crudejemplo/crud-edit/crud-edit.component";
+import {ToastComponent} from "../../share/components/toast/toast.component";
 
 
 
@@ -36,25 +32,20 @@ import {CrudEditComponent} from "../crudejemplo/crud-edit/crud-edit.component";
     ReactiveFormsModule,
     MatTableModule,
     SweetAlert2Module,
-    MatPaginator,
     MatIcon,
-    MatButton,
     RouterLink,
-    MatFormField,
-    MatTable,
     MatFormFieldModule,
-    MatSelectModule,
     MatInputModule,
     MatSort,
     MatHeaderCell,
     MatCell,
     MatHeaderRow,
     MatRow,
-    MatTooltip,
-    MatIconButton,
     MatColumnDef,
     MatHeaderCellDef,
     MatCellDef,
+    ToastComponent,
+
     MatInput,
     MatFormFieldModule,
     RouterModule.forChild([

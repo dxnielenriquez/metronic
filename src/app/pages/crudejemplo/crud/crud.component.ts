@@ -1,8 +1,9 @@
-import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, OnInit, Output, ViewChild} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {MatTableDataSource} from "@angular/material/table";
 import {CrudService} from "../crud.service";
 import {User} from "../../../share/services/auth.service";
+import { PageEvent} from "@angular/material/paginator";
 
 @Component({
   selector: 'app-crud',
@@ -11,7 +12,6 @@ import {User} from "../../../share/services/auth.service";
 })
 export class CrudComponent implements OnInit {
   @Output() deleteEvent = new EventEmitter<number>();
-
   dataSourceUser = new MatTableDataSource<User>;
   query: string = '';
   sortBy = 'cat_encuesta.id';
@@ -22,6 +22,7 @@ export class CrudComponent implements OnInit {
   pages = [10, 25, 50, 100];
   displayedColumns: string[] = ['titulo', 'descripcion', 'destinatario', 'ponderacion_baja', 'ponderacion_alta', 'actions'];
   isLoading = true;
+  totalPages = Math.ceil(this.total / this.perPage);
 
   constructor(
     private _userService: CrudService,
@@ -37,21 +38,19 @@ export class CrudComponent implements OnInit {
   }
 
   getUsuarios(): void {
-
     const sortBy = this.sortBy;
     const order = this.order;
     const page = this.page;
     const perPage = this.perPage;
     const query = this.query;
 
-    this._userService.getUsuarios(sortBy, order, page, perPage, query)
-      .subscribe((res: any) => {
-
-        this.dataSourceUser.data = res.data;
-        this.total = res.total;
-
-      });
+    this._userService.getUsuarios(sortBy, order, page, perPage, query).subscribe((res: any) => {
+      this.dataSourceUser.data = res.data;
+      this.total = res.total;
+      this.totalPages = Math.ceil(this.total / this.perPage);
+    });
   }
+
   // ejemplo con msj de eliminacion
   deleteEncuesta(data: any) {
     let title = data.deleted_at ? 'Activar' : 'Eliminar ';
@@ -76,6 +75,20 @@ export class CrudComponent implements OnInit {
     // });
   }
 
+
+  pageChange(newPage: number) {
+    if (newPage >= 1 && newPage <= this.totalPages) {
+      this.page = newPage;
+      this.getUsuarios();
+    }
+  }
+
+  paginationRange(): number[] {
+    const start = Math.max(1, this.page - 2);
+    const end = Math.min(this.totalPages, this.page + 2);
+    return Array(end - start + 1).fill(0).map((_, idx) => start + idx);
+  }
+
   editEncuesta(id: any) {
     this._router.navigate(['../usuarios/edit/', id], { relativeTo: this._activatedRoute });
   }
@@ -86,4 +99,5 @@ export class CrudComponent implements OnInit {
     this.getUsuarios();
   }
 
+  protected readonly Math = Math;
 }
