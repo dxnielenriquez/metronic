@@ -3,7 +3,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule, provideHttpClient, withInterceptors} from '@angular/common/http';
 import { ClipboardModule } from 'ngx-clipboard';
-import { TranslateModule } from '@ngx-translate/core';
 import { InlineSVGModule } from 'ng-inline-svg-2';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AppRoutingModule } from './app-routing.module';
@@ -26,7 +25,6 @@ import {SharedModule} from "./_metronic/shared/shared.module";
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    TranslateModule.forRoot(),
     HttpClientModule,
     ClipboardModule,
     AppRoutingModule,

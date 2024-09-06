@@ -7,7 +7,6 @@ import {
   NgbProgressbarModule,
   NgbTooltipModule,
 } from '@ng-bootstrap/ng-bootstrap';
-import { TranslateModule } from '@ngx-translate/core';
 import { TranslationModule } from '../../modules/i18n';
 import { LayoutComponent } from './layout.component';
 import { Routing } from '../../pages/routing';
@@ -77,7 +76,6 @@ const routes: Routes = [
     DrawersModule,
     DropdownMenusModule,
     NgbTooltipModule,
-    TranslateModule,
     SharedModule
   ],
   exports: [RouterModule],
