@@ -1,7 +1,7 @@
 import {Component, HostBinding, OnDestroy, OnInit} from '@angular/core';
 import {Subscription} from 'rxjs';
-import {AuthService} from '../../../../../../modules/auth';
 import {Router} from "@angular/router";
+import {AuthService} from "../../../../../../share/services/auth.service";
 
 @Component({
   selector: 'app-user-inner',

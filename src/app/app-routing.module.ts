@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import {Routing} from "./pages/routing";
 import {LayoutComponent} from "./_metronic/layout/layout.component";
-import {AuthGuard} from "./modules/auth/services/auth.guard";
+import {AuthGuard} from "./share/guards/auth.guard";
 
 export const routes: Routes = [
   {
