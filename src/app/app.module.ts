@@ -8,7 +8,6 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
-import { CrudEditComponent } from './modules/crudejemplo/crud-edit/crud-edit.component';
 import {MatIcon, MatIconModule} from "@angular/material/icon";
 import {MatButton} from "@angular/material/button";
 import {ReactiveFormsModule} from "@angular/forms";
@@ -18,6 +17,7 @@ import {MatInput, MatInputModule} from "@angular/material/input";
 import {SharedModule} from "./_metronic/shared/shared.module";
 import {tokenInterceptor} from "./share/interceptors/token.interceptor";
 import {baseUrlInterceptor} from "./share/interceptors/base-url.interceptor";
+import {CrudEditComponent} from "./pages/crudejemplo/crud-edit/crud-edit.component";
 
 
 @NgModule({

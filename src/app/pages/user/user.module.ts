@@ -22,9 +22,9 @@ import {MatFormField, MatFormFieldModule} from "@angular/material/form-field";
 import {MatSort} from "@angular/material/sort";
 import {MatTooltip} from "@angular/material/tooltip";
 import {MatInput, MatInputModule} from "@angular/material/input";
-import {CrudModule} from "../../modules/crudejemplo/crud/crud.module";
-import {CrudEditComponent} from "../../modules/crudejemplo/crud-edit/crud-edit.component";
 import {MatSelectModule} from "@angular/material/select";
+import {CrudModule} from "../crudejemplo/crud/crud.module";
+import {CrudEditComponent} from "../crudejemplo/crud-edit/crud-edit.component";
 
 
 
