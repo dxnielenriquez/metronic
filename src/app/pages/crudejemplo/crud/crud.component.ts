@@ -1,9 +1,8 @@
-import {Component, EventEmitter, OnInit, Output, ViewChild} from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {MatTableDataSource} from "@angular/material/table";
 import {CrudService} from "../crud.service";
 import {User} from "../../../share/services/auth.service";
-import { PageEvent} from "@angular/material/paginator";
 
 @Component({
   selector: 'app-crud',
