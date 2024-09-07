@@ -99,5 +99,11 @@ export class CrudComponent implements OnInit {
     this.getUsuarios();
   }
 
+  onPerPageChange(event: any): void {
+    this.perPage = parseInt(event.target.value, 10);
+    this.page = 1;
+    this.getUsuarios();
+  }
+
   protected readonly Math = Math;
 }

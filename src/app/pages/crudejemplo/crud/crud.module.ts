@@ -23,16 +23,17 @@ import {MatInput, MatInputModule} from "@angular/material/input";
 import {RouterLink} from "@angular/router";
 import {MatSelectModule} from "@angular/material/select";
 import {SharedModule} from "../../../_metronic/shared/shared.module";
+import {FormsModule} from "@angular/forms";
 
 
 @NgModule({
   declarations: [CrudComponent],
-  imports: [
-    CommonModule, DataTablesModule,
-    SweetAlert2Module.forChild(),
+    imports: [
+        CommonModule, DataTablesModule,
+        SweetAlert2Module.forChild(),
 
-    NgbModalModule, MatSelectModule, MatInputModule, MatFormFieldModule, MatIcon, MatIconModule, MatFormField, MatTable, MatHeaderCell, MatCell, MatHeaderRow, MatRow, MatPaginator, MatTooltip, MatIconButton, MatColumnDef, MatSort, MatInput, MatButton, RouterLink, MatHeaderRowDef, MatRowDef, MatHeaderCellDef, MatCellDef, SharedModule,
-  ],
+        NgbModalModule, MatSelectModule, MatInputModule, MatFormFieldModule, MatIcon, MatIconModule, MatFormField, MatTable, MatHeaderCell, MatCell, MatHeaderRow, MatRow, MatPaginator, MatTooltip, MatIconButton, MatColumnDef, MatSort, MatInput, MatButton, RouterLink, MatHeaderRowDef, MatRowDef, MatHeaderCellDef, MatCellDef, SharedModule, FormsModule,
+    ],
   exports: [CrudComponent]
 })
 export class CrudModule { }

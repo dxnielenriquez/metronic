@@ -74,8 +74,16 @@
       {{ Math.min(page * perPage, total) }} de {{ total }} entradas
     </div>
 
+    <div class=" align-items-center" style="margin-left: auto">
+      <select class="form-control form-control-sm text-success font-weight-bold mr-4 border-0 bg-light-primary"
+              style="width: 75px;"
+              [(ngModel)]="perPage"
+              (change)="onPerPageChange($event)">
+        <option *ngFor="let option of pages" [value]="option">{{ option }}</option>
+      </select>
+    </div>
 
-    <ul class="pagination">
+    <ul class="pagination pagination-blue">
       <li class="page-item previous" [class.disabled]="page === 1" (click)="pageChange(page - 1)">
         <a class="page-link cursor-pointer">
           <i class="previous"></i>
@@ -93,6 +101,8 @@
       </li>
     </ul>
   </div>
+
+
 
 
 </div>
