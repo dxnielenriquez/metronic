@@ -3,6 +3,7 @@ import {ActivatedRoute, Router} from '@angular/router';
 import {MatTableDataSource} from "@angular/material/table";
 import {CrudService} from "../crud.service";
 import {User} from "../../../share/services/auth.service";
+import {LayoutUtilsService} from "../../../share/components/utils/layout-utils.service";
 
 @Component({
   selector: 'app-crud',
@@ -27,6 +28,8 @@ export class CrudComponent implements OnInit {
     private _userService: CrudService,
     private _router: Router,
     private _activatedRoute: ActivatedRoute,
+    private _layoutUtilsService: LayoutUtilsService,
+
   ) {
   }
 
@@ -57,21 +60,21 @@ export class CrudComponent implements OnInit {
     let waitDesciption = data.deleted_at ? 'Activandio...' : 'Eliminando...';
     let boton = data.deleted_at ? 'Activar' : 'Eliminar';
 
-    // let dialogRef = this._layoutUtilsService.deleteElement(title, description, waitDesciption, boton);
+    let dialogRef = this._layoutUtilsService.deleteElement(title, description, waitDesciption, boton);
 
-    this.isLoading = true;
-      this._userService.delete(data.id).subscribe(() => {
-        this.getUsuarios();
-      });
-    // dialogRef.afterClosed().subscribe(async (res) => {
-    //   if (!res) {
-    //     this.isLoading = false;
-    //     return;
-    //   }
+    // this.isLoading = true;
     //   this._userService.delete(data.id).subscribe(() => {
     //     this.getUsuarios();
     //   });
-    // });
+    dialogRef.afterClosed().subscribe(async (res) => {
+      if (!res) {
+        this.isLoading = false;
+        return;
+      }
+      this._userService.delete(data.id).subscribe(() => {
+        this.getUsuarios();
+      });
+    });
   }
 
 

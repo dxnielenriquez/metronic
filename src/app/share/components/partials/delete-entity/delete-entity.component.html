@@ -1,0 +1,15 @@
+<div class="dialog-container">
+  <div class="dialog-title">
+    <mat-progress-bar mode="indeterminate" *ngIf="viewLoading"></mat-progress-bar>
+  </div>
+  <div class="dialog-header">
+    <h3>{{ data.title }}</h3>
+  </div>
+  <div class="dialog-content">
+    <div>{{ viewLoading ? data.waitDesciption : data.description }}</div>
+  </div>
+  <div class="dialog-actions">
+    <button mat-button (click)="onNoClick()">Cancelar</button>&nbsp;
+    <button mat-button (click)="onYesClick()" cdkFocusInitial [disabled]="viewLoading">{{data.boton}}</button>
+  </div>
+</div>
