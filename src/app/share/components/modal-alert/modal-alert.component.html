@@ -1,27 +1,30 @@
 <div class="modal fade show d-block" role="dialog" tabindex="-1" style="z-index: 1050;" aria-modal="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
-    <div class="modal-content2">
+    <div class="modal-content modal-content2">
       <!-- Header -->
       <div class="modal-header py-5">
-        <h5 class="modal-title">{{title}}</h5>
+        <h5 class="modal-title">{{ title }}</h5>
       </div>
 
       <!-- Body -->
       <div class="modal-body">
         <div class="d-flex justify-content-center">
-          <span class="fa-stack fa-bounce" style="font-size: 5em;">
-            <i class="fa-regular fa-circle fa-stack-2x"></i>
-            <i class="fa-solid {{icon}} fa-stack-1x"></i>
+          <span class="fa-stack fa-3x">
+            <i class="la la-tint icon-md"></i>
+
           </span>
         </div>
-        <h4 class="text-center mt-3">{{message}}</h4>
+        <h4 class="text-center mt-3">{{ message }}</h4>
       </div>
 
       <!-- Footer -->
       <div class="modal-footer">
-        <button *ngIf="btnCancel" type="button" (click)="closeDialog(false)" class="btn btn-light">{{btnCancel}}</button>
-        <button type="button" (click)="closeDialog(true)" class="btn btn-primary">{{btnOk}}</button>
+        <button *ngIf="btnCancel" type="button" (click)="closeDialog(false)" class="btn btn-light">{{ btnCancel }}
+        </button>
+        <button type="button" (click)="closeDialog(true)" class="btn btn-primary">{{ btnOk }}</button>
       </div>
     </div>
   </div>
 </div>
+
+
