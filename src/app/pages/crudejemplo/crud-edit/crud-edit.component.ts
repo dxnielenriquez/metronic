@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import {CrudService} from "../crud.service";
 import {ToastService} from "../../../share/services/toast.service";
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-crud-edit',
@@ -16,7 +17,6 @@ export class CrudEditComponent implements OnInit {
   isNewUser: boolean = true;
   roles: any[] = [];
   rol: any;
-
   form: FormGroup;
 
   constructor(
@@ -107,15 +107,49 @@ export class CrudEditComponent implements OnInit {
 
 
   addUsuario(user: any) {
-    this._encuestaService.create(user).subscribe(() => {
-      this._router.navigate(['/catalogo/usuarios'], { relativeTo: this._activatedRoute });
+    this._encuestaService.create(user).subscribe({
+      next: () => {
+        this._router.navigate(['/catalogo/usuarios'], { relativeTo: this._activatedRoute });
+
+        Swal.fire({
+          icon: 'success',
+          title: 'Usuario agregado',
+          text: 'El nuevo usuario ha sido creado correctamente.',
+          timer: 2000,
+          showConfirmButton: false
+        });
+      },
+      error: (err) => {
+        Swal.fire({
+          icon: 'error',
+          title: 'Error',
+          text: 'Hubo un problema al crear el usuario. Por favor intenta de nuevo.',
+        });
+      }
     });
   }
 
+
   updateUsuario(id: any, user: any) {
-    this._encuestaService.update(id, user).subscribe(() => {
-      this._toastService.show('Éxito', 'Usuario actualizado correctamente.', {success: true});
-      this._router.navigate(['../../'], { relativeTo: this._activatedRoute });
+    this._encuestaService.update(id, user).subscribe({
+      next: () => {
+        this._router.navigate(['../../'], { relativeTo: this._activatedRoute });
+
+        Swal.fire({
+          icon: 'success',
+          title: 'Usuario actualizado',
+          text: 'El usuario se ha actualizado correctamente.',
+          timer: 2000,
+          showConfirmButton: false
+        });
+      },
+      error: (err) => {
+        Swal.fire({
+          icon: 'error',
+          title: 'Error',
+          text: 'Hubo un problema al actualizar el usuario. Por favor intenta de nuevo.',
+        });
+      }
     });
   }
 }
