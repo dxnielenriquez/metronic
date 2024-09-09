@@ -61,11 +61,6 @@ export class CrudComponent implements OnInit {
     let boton = data.deleted_at ? 'Activar' : 'Eliminar';
 
     let dialogRef = this._layoutUtilsService.deleteElement(title, description, waitDesciption, boton);
-
-    // this.isLoading = true;
-    //   this._userService.delete(data.id).subscribe(() => {
-    //     this.getUsuarios();
-    //   });
     dialogRef.afterClosed().subscribe(async (res) => {
       if (!res) {
         this.isLoading = false;
