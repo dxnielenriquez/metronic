@@ -58,7 +58,7 @@ export class CrudComponent implements OnInit {
     this.query = input.value.trim().toLowerCase();
     this.getUsuarios();
   }
-  // ejemplo con msj de eliminacion
+
   deleteEncuesta(data: any) {
     let title = data.deleted_at ? 'Activar' : 'Eliminar ';
     let description = data.deleted_at ? '¿Está seguro de activar ' + data.titulo + '?' :  '¿Está seguro de eliminar ' + data.titulo + '?';
