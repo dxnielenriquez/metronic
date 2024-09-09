@@ -23,12 +23,16 @@
       <div class="fv-row mb-7 my-form-field">
         <!-- Campo de Título -->
         <label class="required fw-semibold fs-6 mb-2">Título</label>
-        <input type="text" class="form-control form-control-solid" formControlName="titulo" maxlength="25" autocomplete="off" required />
+        <input type="text" class="form-control form-control-solid" formControlName="titulo" maxlength="255" autocomplete="off" required />
         <div class="fv-plugins-message-container fv-plugins-message-container--enabled invalid-feedback"></div>
-        <mat-error *ngIf="isControlHasError('titulo','required')">El campo título es
-          <strong>requerido</strong>
+        <mat-error *ngIf="isControlHasError('titulo', 'required')">
+          El campo título es <strong>requerido</strong>
+        </mat-error>
+        <mat-error *ngIf="isControlHasError('titulo', 'pattern')">
+          No se aceptan números o caracteres especiales.
         </mat-error>
       </div>
+
 
       <div class="fv-row mb-7 my-form-field">
         <!-- Campo de Descripción -->
@@ -38,6 +42,9 @@
         <mat-error *ngIf="isControlHasError('descripcion','required')">El campo
           descripción es
           <strong>requerido</strong>
+        </mat-error>
+        <mat-error *ngIf="isControlHasError('descripcion', 'pattern')">
+          No se aceptan números o caracteres especiales.
         </mat-error>
       </div>
 
