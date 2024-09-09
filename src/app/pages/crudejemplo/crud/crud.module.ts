@@ -18,7 +18,7 @@ import {
 import {MatPaginator} from "@angular/material/paginator";
 import {MatTooltip} from "@angular/material/tooltip";
 import {MatButton, MatIconButton} from "@angular/material/button";
-import {MatSort} from "@angular/material/sort";
+import {MatSort, MatSortHeader} from "@angular/material/sort";
 import {MatInput, MatInputModule} from "@angular/material/input";
 import {RouterLink} from "@angular/router";
 import {MatSelectModule} from "@angular/material/select";
@@ -32,7 +32,7 @@ import {FormsModule} from "@angular/forms";
         CommonModule, DataTablesModule,
         SweetAlert2Module.forChild(),
 
-        NgbModalModule, MatSelectModule, MatInputModule, MatFormFieldModule, MatIcon, MatIconModule, MatFormField, MatTable, MatHeaderCell, MatCell, MatHeaderRow, MatRow, MatPaginator, MatTooltip, MatIconButton, MatColumnDef, MatSort, MatInput, MatButton, RouterLink, MatHeaderRowDef, MatRowDef, MatHeaderCellDef, MatCellDef, SharedModule, FormsModule,
+        NgbModalModule, MatSelectModule, MatInputModule, MatFormFieldModule, MatIcon, MatIconModule, MatFormField, MatTable, MatHeaderCell, MatCell, MatHeaderRow, MatRow, MatPaginator, MatTooltip, MatIconButton, MatColumnDef, MatSort, MatInput, MatButton, RouterLink, MatHeaderRowDef, MatRowDef, MatHeaderCellDef, MatCellDef, SharedModule, FormsModule, MatSortHeader,
     ],
   exports: [CrudComponent]
 })

@@ -12,14 +12,14 @@
     <div class="table-container-wrapper">
       <mat-table class="mat-elevation-z1 mat-table-list table-responsive" style="overflow-x: auto; min-width: 80rem"
                  [dataSource]="dataSourceUser" (matSortChange)="sort($event)" matSort matSortActive="id"
-                 matSortDirection="asc">
+                 matSortDirection="asc" >
         <ng-container matColumnDef="titulo">
-          <mat-header-cell *matHeaderCellDef>Título</mat-header-cell>
+          <mat-header-cell mat-sort-header="titulo" *matHeaderCellDef>Título</mat-header-cell>
           <mat-cell *matCellDef="let cat_encuesta">{{ cat_encuesta.titulo }}</mat-cell>
         </ng-container>
 
         <ng-container matColumnDef="descripcion">
-          <mat-header-cell *matHeaderCellDef>Descripción</mat-header-cell>
+          <mat-header-cell mat-sort-header="descripcion" *matHeaderCellDef>Descripción</mat-header-cell>
           <mat-cell *matCellDef="let cat_encuesta">{{ cat_encuesta.descripcion }}</mat-cell>
         </ng-container>
 
@@ -80,7 +80,7 @@
     </div>
 
     <div class=" align-items-center" style="margin-left: auto">
-      <select class="form-control form-control-sm text-success font-weight-bold mr-4 border-0 bg-light-primary"
+      <select class="form-control form-control-sm text-dark font-weight-bold mr-4 border-0 bg-light-primary"
               style="width: 75px;"
               [(ngModel)]="perPage"
               (change)="onPerPageChange($event)">
