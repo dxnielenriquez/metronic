@@ -53,6 +53,11 @@ export class CrudComponent implements OnInit {
     });
   }
 
+  applyFilter(event: Event): void {
+    const input = event.target as HTMLInputElement;
+    this.query = input.value.trim().toLowerCase();
+    this.getUsuarios();
+  }
   // ejemplo con msj de eliminacion
   deleteEncuesta(data: any) {
     let title = data.deleted_at ? 'Activar' : 'Eliminar ';

@@ -9,6 +9,12 @@
 
 <div class="nav-link table-container">
   <div class="m-4">
+    <div class="d-flex align-items-center position-relative my-1">
+      <app-keenicon name="magnifier" class="fs-3 position-absolute ms-5"></app-keenicon>
+      <input type="text" data-action="filter" class="form-control form-control-solid w-250px ps-12"
+             placeholder="Buscar encuesta" (input)="applyFilter($event)">
+    </div>
+
     <div class="table-container-wrapper">
       <mat-table class="mat-elevation-z1 mat-table-list table-responsive" style="overflow-x: auto; min-width: 80rem"
                  [dataSource]="dataSourceUser" (matSortChange)="sort($event)" matSort matSortActive="id"
