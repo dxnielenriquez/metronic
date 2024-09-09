@@ -10,7 +10,9 @@
 <div class="nav-link table-container">
   <div class="m-4">
     <div class="table-container-wrapper">
-      <mat-table class="mat-elevation-z1 mat-table-list table-responsive" style="overflow-x: auto; min-width: 80rem" [dataSource]="dataSourceUser" (matSortChange)="sort($event)" matSort matSortActive="id" matSortDirection="asc">
+      <mat-table class="mat-elevation-z1 mat-table-list table-responsive" style="overflow-x: auto; min-width: 80rem"
+                 [dataSource]="dataSourceUser" (matSortChange)="sort($event)" matSort matSortActive="id"
+                 matSortDirection="asc">
         <ng-container matColumnDef="titulo">
           <mat-header-cell *matHeaderCellDef>Título</mat-header-cell>
           <mat-cell *matCellDef="let cat_encuesta">{{ cat_encuesta.titulo }}</mat-cell>
@@ -39,15 +41,17 @@
         <ng-container matColumnDef="actions">
           <mat-header-cell *matHeaderCellDef>Acciones</mat-header-cell>
           <mat-cell *matCellDef="let cat_encuesta">
-            <button [hidden]="cat_encuesta.deleted_at || cat_encuesta.id == 1" (click)="editEncuesta(cat_encuesta.id)" mat-icon-button >
+            <button [hidden]="cat_encuesta.deleted_at || cat_encuesta.id == 1" (click)="editEncuesta(cat_encuesta.id)"
+                    mat-icon-button>
               <span class="menu-icon">
           <app-keenicon name="notepad-edit" class="fs-2"></app-keenicon>
         </span>
             </button>
 
-            <button [hidden]="cat_encuesta.id == 1" (click)="deleteEncuesta(cat_encuesta)" mat-icon-button >
+            <button [hidden]="cat_encuesta.id == 1" (click)="deleteEncuesta(cat_encuesta)" mat-icon-button>
               <ng-container>
-                <app-keenicon *ngIf="cat_encuesta.deleted_at; else noDeleted" name="check-circle" class="fs-2"></app-keenicon>
+                <app-keenicon *ngIf="cat_encuesta.deleted_at; else noDeleted" name="check-circle"
+                              class="fs-2"></app-keenicon>
                 <ng-template #noDeleted>
                   <app-keenicon name="trash-square" class="fs-2"></app-keenicon>
                 </ng-template>
@@ -67,6 +71,7 @@
     </div>
   </div>
 
+  <!--  Paginador-->
 
   <div class="d-flex flex-stack flex-wrap pt-10">
     <div class="fs-6 fw-bold text-gray-700">
@@ -102,7 +107,5 @@
     </ul>
   </div>
 
-
-
-
+  <!--Fin  Paginador-->
 </div>
