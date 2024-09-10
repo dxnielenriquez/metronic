@@ -22,6 +22,7 @@ import { DeleteEntityDialogComponent } from './share/dialogs/delete-entity-dialo
 import {errorInterceptor} from "./share/interceptors/error.interceptor";
 import {ModalAlertComponent} from "./share/components/modal-alert/modal-alert.component";
 import {ToastComponent} from "./share/components/toast/toast.component";
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 
 
 @NgModule({
@@ -51,6 +52,7 @@ import {ToastComponent} from "./share/components/toast/toast.component";
   ],
   providers: [
     provideHttpClient(withInterceptors([baseUrlInterceptor, tokenInterceptor, errorInterceptor])),
+    provideAnimationsAsync(),
   ],
   bootstrap: [AppComponent],
 })
