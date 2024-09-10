@@ -18,6 +18,7 @@ export class LoginComponent implements OnInit {
   hasError: boolean;
   isLoading$: Observable<boolean>;
   appId: string = '';
+  isPasswordVisible = false;
 
   constructor(
     private fb: FormBuilder,
@@ -57,6 +58,11 @@ export class LoginComponent implements OnInit {
         ]),
       ],
     });
+  }
+
+
+  togglePasswordVisibility() {
+    this.isPasswordVisible = !this.isPasswordVisible;
   }
 
   submit() {
