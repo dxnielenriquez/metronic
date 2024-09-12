@@ -18,6 +18,8 @@ export class LoginComponent implements OnInit {
   hasError: boolean;
   isLoading$: Observable<boolean>;
   appId: string = '';
+  isPasswordVisible = false;
+
 
   constructor(
     private fb: FormBuilder,
@@ -30,7 +32,7 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    if(this.authService.isAuthenticated()) {
+    if (this.authService.isAuthenticated()) {
       this.router.navigate(['/dashboard']).then();
     }
     this.initForm();
@@ -57,6 +59,10 @@ export class LoginComponent implements OnInit {
         ]),
       ],
     });
+  }
+
+  togglePasswordVisibility() {
+    this.isPasswordVisible = !this.isPasswordVisible;
   }
 
   submit() {
