@@ -1,30 +1,8 @@
-.header {
-  background-color: #1d3b6c;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  color: white;
-  padding: 20px 25px;
-  border-radius: 8px;
-}
 
-.header-title {
-  font-size: 1.5rem;
-  font-weight: bold;
-}
 
-.header-buttons .custom-button {
-  color: white;
-  background-color: #1B84FF;
-  border-radius: 8px;
-  padding: 10px 20px;
-  font-size: 1rem;
-  transition: background-color 0.3s ease;
-}
 
-.header-buttons .custom-button:hover {
-  background-color: #b0bec5;
-}
+
+
 
 .table-container {
   background-color: #ffffff;
@@ -100,12 +78,4 @@
   }
 }
 
-.table-container-wrapper mat-table {
-  border-collapse: collapse;
-}
 
-.table-container-wrapper mat-header-cell,
-.table-container-wrapper mat-cell {
-  border-bottom: 1px dashed rgba(226, 226, 226, 0.9);
-  padding: 8px;
-}
