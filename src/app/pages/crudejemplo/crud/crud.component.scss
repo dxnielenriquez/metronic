@@ -15,7 +15,7 @@
 
 .header-buttons .custom-button {
   color: white;
-  background-color: #b0bec5;
+  background-color: #1B84FF;
   border-radius: 8px;
   padding: 10px 20px;
   font-size: 1rem;
@@ -98,4 +98,14 @@
   .mat-header-cell, .mat-cell {
     font-size: 0.85rem;
   }
+}
+
+.table-container-wrapper mat-table {
+  border-collapse: collapse;
+}
+
+.table-container-wrapper mat-header-cell,
+.table-container-wrapper mat-cell {
+  border-bottom: 1px dashed rgba(226, 226, 226, 0.9);
+  padding: 8px;
 }

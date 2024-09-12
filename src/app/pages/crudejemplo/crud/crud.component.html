@@ -1,69 +1,98 @@
 <div class="header">
   <span class="header-title">Encuestas</span>
-  <div class="header-buttons">
-    <button class="custom-button" matTooltip="Crear nueva encuesta" mat-raised-button [routerLink]="['add']">
-      Nueva encuesta
+  <div class="d-flex justify-content-end header-buttons">
+    <!--begin::Add user-->
+    <button type="button" class="btn custom-button" [routerLink]="['add']">
+      Crear nueva encuesta
     </button>
+    <!--end::Add user-->
   </div>
 </div>
 
 <div class="nav-link table-container">
   <div class="m-4">
-    <div class="d-flex align-items-center position-relative my-1">
-      <app-keenicon name="magnifier" class="fs-3 position-absolute ms-5"></app-keenicon>
-      <input type="text" data-action="filter" class="form-control form-control-solid w-250px ps-12"
-             placeholder="Buscar encuesta" (input)="applyFilter($event)">
+    <div class="card-title mb-5">
+
+      <div class="d-flex align-items-center position-relative my-1">
+        <app-keenicon name="magnifier" class="fs-3 position-absolute ms-5"></app-keenicon>
+        <input type="text" data-action="filter" class="form-control form-control-solid w-250px ps-12"
+               placeholder="Buscar encuesta" (input)="applyFilter($event)">
+      </div>
     </div>
 
-    <div class="table-container-wrapper">
-      <mat-table class="mat-elevation-z1 mat-table-list table-responsive" style="overflow-x: auto; min-width: 80rem"
+    <div class="table-container-wrapper align-middle ">
+      <mat-table class="table-row-dashed  mat-elevation-z1 mat-table-list table-responsive" style="overflow-x: auto; min-width: 80rem"
                  [dataSource]="dataSourceUser" (matSortChange)="sort($event)" matSort matSortActive="id"
-                 matSortDirection="asc" >
+                 matSortDirection="asc">
         <ng-container matColumnDef="titulo">
-          <mat-header-cell mat-sort-header="titulo" *matHeaderCellDef>Título</mat-header-cell>
-          <mat-cell *matCellDef="let cat_encuesta">{{ cat_encuesta.titulo }}</mat-cell>
+          <mat-header-cell class="text-gray-500 fw-bold fs-7 text-uppercase" mat-sort-header="titulo" *matHeaderCellDef>Título</mat-header-cell>
+          <mat-cell class="fw-semibold text-gray-700" *matCellDef="let cat_encuesta">{{ cat_encuesta.titulo }}</mat-cell>
         </ng-container>
 
         <ng-container matColumnDef="descripcion">
-          <mat-header-cell mat-sort-header="descripcion" *matHeaderCellDef>Descripción</mat-header-cell>
-          <mat-cell *matCellDef="let cat_encuesta">{{ cat_encuesta.descripcion }}</mat-cell>
+          <mat-header-cell class="text-gray-500 fw-bold fs-7 text-uppercase" mat-sort-header="descripcion" *matHeaderCellDef>Descripción</mat-header-cell>
+          <mat-cell class="text-gray-700" *matCellDef="let cat_encuesta">{{ cat_encuesta.descripcion }}</mat-cell>
         </ng-container>
 
         <ng-container matColumnDef="destinatario">
-          <mat-header-cell *matHeaderCellDef>Destinatario</mat-header-cell>
-          <mat-cell *matCellDef="let cat_encuesta">{{ cat_encuesta.destinatario }}</mat-cell>
+          <mat-header-cell class="text-gray-500 fw-bold fs-7 text-uppercase" *matHeaderCellDef>Destinatario</mat-header-cell>
+          <mat-cell class="text-gray-700" *matCellDef="let cat_encuesta">{{ cat_encuesta.destinatario }}</mat-cell>
         </ng-container>
 
         <ng-container matColumnDef="ponderacion_baja">
-          <mat-header-cell *matHeaderCellDef>Criterio mínimo</mat-header-cell>
-          <mat-cell *matCellDef="let cat_encuesta">{{ cat_encuesta.ponderacion_baja }}</mat-cell>
+          <mat-header-cell class="text-gray-500 fw-bold fs-7 text-uppercase" *matHeaderCellDef>Criterio mínimo</mat-header-cell>
+          <mat-cell class="text-gray-700" *matCellDef="let cat_encuesta">{{ cat_encuesta.ponderacion_baja }}</mat-cell>
         </ng-container>
 
         <ng-container matColumnDef="ponderacion_alta">
-          <mat-header-cell *matHeaderCellDef>Criterio máximo</mat-header-cell>
-          <mat-cell *matCellDef="let cat_encuesta">{{ cat_encuesta.ponderacion_alta }}</mat-cell>
+          <mat-header-cell class="text-gray-500 fw-bold fs-7 text-uppercase" *matHeaderCellDef>Criterio máximo</mat-header-cell>
+          <mat-cell class="text-gray-700" *matCellDef="let cat_encuesta">{{ cat_encuesta.ponderacion_alta }}</mat-cell>
         </ng-container>
 
         <ng-container matColumnDef="actions">
-          <mat-header-cell *matHeaderCellDef>Acciones</mat-header-cell>
+          <mat-header-cell class="text-gray-500 fw-bold fs-7 text-uppercase" *matHeaderCellDef>Acciones</mat-header-cell>
           <mat-cell *matCellDef="let cat_encuesta">
-            <button [hidden]="cat_encuesta.deleted_at || cat_encuesta.id == 1" (click)="editEncuesta(cat_encuesta.id)"
-                    mat-icon-button>
-              <span class="menu-icon">
-          <app-keenicon name="notepad-edit" class="fs-2"></app-keenicon>
-        </span>
+            <button class="btn btn-icon btn-active-light-primary w-30px h-30px me-3"
+                    *ngIf="!cat_encuesta.deleted_at && cat_encuesta.id !== 1"
+                    (click)="editEncuesta(cat_encuesta.id)">
+              <i class="ki-duotone ki-pencil fs-3">
+                <span class="path1"></span>
+                <span class="path2"></span>
+              </i>
             </button>
 
-            <button [hidden]="cat_encuesta.id == 1" (click)="deleteEncuesta(cat_encuesta)" mat-icon-button>
+            <!--            <button [hidden]="cat_encuesta.id == 1" (click)="deleteEncuesta(cat_encuesta)" mat-icon-button>-->
+            <!--              <ng-container>-->
+            <!--                <app-keenicon *ngIf="cat_encuesta.deleted_at; else noDeleted" name="check-circle"-->
+            <!--                              class="fs-2"></app-keenicon>-->
+            <!--                <ng-template #noDeleted>-->
+            <!--                  <app-keenicon name="trash-square" class="fs-2"></app-keenicon>-->
+            <!--                </ng-template>-->
+            <!--              </ng-container>-->
+
+            <!--            </button>-->
+
+            <button class="btn btn-icon btn-active-light-primary w-30px h-30px"
+                    *ngIf="cat_encuesta.id !== 1"
+                    (click)="deleteEncuesta(cat_encuesta)">
               <ng-container>
-                <app-keenicon *ngIf="cat_encuesta.deleted_at; else noDeleted" name="check-circle"
-                              class="fs-2"></app-keenicon>
+                <i *ngIf="cat_encuesta.deleted_at; else noDeleted" class="ki-duotone ki-check fs-3">
+                  <span class="path1"></span>
+                  <span class="path2"></span>
+                </i>
                 <ng-template #noDeleted>
-                  <app-keenicon name="trash-square" class="fs-2"></app-keenicon>
+                  <i class="ki-duotone ki-trash fs-3">
+                    <span class="path1"></span>
+                    <span class="path2"></span>
+                    <span class="path3"></span>
+                    <span class="path4"></span>
+                    <span class="path5"></span>
+                  </i>
                 </ng-template>
               </ng-container>
-
             </button>
+
+
           </mat-cell>
         </ng-container>
 
@@ -75,7 +104,6 @@
         No se encontraron registros.
       </div>
     </div>
-  </div>
 
   <!--  Paginador-->
 

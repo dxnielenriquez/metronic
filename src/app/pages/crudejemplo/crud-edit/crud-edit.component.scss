@@ -1,5 +1,5 @@
 .header {
-  background-color: #1d3b6c; /* Color azul oscuro */
+  background-color: #1d3b6c;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -13,8 +13,8 @@
   font-weight: bold;
 }
 
-.header-buttons .custom-button {
-  background-color: #b0bec5;
+.header-buttons-edit .custom-button-edit {
+  background-color: #1B84FF;
   color: white;
   border-radius: 8px;
   padding: 10px 20px;
@@ -24,7 +24,7 @@
 }
 
 
-.header-buttons .custom-button:hover {
+.header-buttons-edit .custom-button-edit:hover {
   background-color: #b0bec5;
 
 }
@@ -89,7 +89,7 @@
     font-size: 1.25rem;
   }
 
-  .header-buttons .custom-button {
+  .header-buttons-edit .custom-button-edit {
     padding: 8px 16px;
     font-size: 0.9rem;
   }
@@ -103,7 +103,7 @@
   }
 }
 
-.header-buttons {
+.header-buttons-edit {
   display: flex;
   align-items: center;
   gap: 8px;
