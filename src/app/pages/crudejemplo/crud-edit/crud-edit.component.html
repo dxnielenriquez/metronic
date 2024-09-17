@@ -2,11 +2,11 @@
   <span class="header-title">{{ isNewUser ? 'Crear nueva' : 'Actualizar' }} encuesta</span>
   <div class="header-buttons-edit">
 
-    <button type="button" class="btn btn-primary custom-button-edit "  (click)="backRoute()">
+    <button type="button" class="btn btn-primary custom-button-edit " (click)="backRoute()">
       Regresar
     </button>
 
-    <button type="button" class="btn btn-primary custom-button-edit"  (click)="onSubmit()">
+    <button type="button" class="btn btn-primary custom-button-edit" (click)="onSubmit()">
       <span class="menu-icon"> </span>
       <span>{{ isNewUser ? 'Guardar' : 'Actualizar' }}</span>
     </button>
@@ -20,7 +20,8 @@
       <div class="fv-row mb-7 my-form-field">
         <!-- Campo de Título -->
         <label class="required fw-semibold fs-6 mb-2">Título</label>
-        <input type="text" class="form-control form-control-solid" formControlName="titulo" maxlength="255" autocomplete="off" required />
+        <input type="text" class="form-control form-control-solid" formControlName="titulo" maxlength="255"
+               autocomplete="off" required/>
         <div class="fv-plugins-message-container fv-plugins-message-container--enabled invalid-feedback"></div>
         <mat-error class="error" *ngIf="isControlHasError('titulo', 'required')">
           El campo título es <strong>requerido</strong>
@@ -34,7 +35,8 @@
       <div class="fv-row mb-7 my-form-field">
         <!-- Campo de Descripción -->
         <label class="required fw-semibold fs-6 mb-2">Descripción</label>
-        <input type="text" class="form-control form-control-solid" formControlName="descripcion" maxlength="255" autocomplete="off" required />
+        <input type="text" class="form-control form-control-solid" formControlName="descripcion" maxlength="255"
+               autocomplete="off" required/>
         <div class="fv-plugins-message-container fv-plugins-message-container--enabled invalid-feedback"></div>
         <mat-error class="error" *ngIf="isControlHasError('descripcion','required')">El campo
           descripción es
@@ -46,22 +48,27 @@
       </div>
 
       <div class="fv-row mb-7 my-form-field">
-        <label class="col-form-label text-right col-lg-3 col-sm-12">Destinatario</label>
-        <div class="col-lg-4 col-md-9 col-sm-12 ">
-          <select class="form-control form-control-solid selectpicker " data-size="4" formControlName="role_id">
+        <label class="col-lg-6 col-form-label required fw-bold fs-6"
+        >Destinatario</label
+        >
+        <div class="col-lg-3 fv-row">
+          <select
+            class="form-select form-select-solid form-select-lg"
+            name="currency"
+          >
+
+            <option value="">Selecciona un destinatario</option>
             <option [value]="role.id" *ngFor="let role of roles">{{ role.name }}</option>
+
           </select>
         </div>
-        <!-- Mensaje de error -->
-        <mat-error class="error" *ngIf="isControlHasError('role_id', 'required')">
-          Debe seleccionar un <strong>destinatario</strong>.
-        </mat-error>
       </div>
 
       <div class="fv-row mb-7 my-form-field">
         <!-- Campo de Criterio mínimo -->
         <label class="required fw-semibold fs-6 mb-2">Criterio mínimo</label>
-        <input type="text" class="form-control form-control-solid" formControlName="ponderacion_baja" maxlength="25" autocomplete="off" required />
+        <input type="text" class="form-control form-control-solid" formControlName="ponderacion_baja" maxlength="25"
+               autocomplete="off" required/>
         <div class="fv-plugins-message-container fv-plugins-message-container--enabled invalid-feedback"></div>
         <mat-error class="error" *ngIf="isControlHasError('ponderacion_baja','required')">El campo criterio mínimo es
           <strong>requerido</strong>
@@ -71,7 +78,8 @@
       <div class="fv-row mb-7 my-form-field">
         <!-- Campo de Criterio máximo -->
         <label class="required fw-semibold fs-6 mb-2">Criterio máximo</label>
-        <input type="text" class="form-control form-control-solid" formControlName="ponderacion_alta" maxlength="25" autocomplete="off" required />
+        <input type="text" class="form-control form-control-solid" formControlName="ponderacion_alta" maxlength="25"
+               autocomplete="off" required/>
         <div class="fv-plugins-message-container fv-plugins-message-container--enabled invalid-feedback"></div>
         <mat-error class="error" *ngIf="isControlHasError('ponderacion_alta','required')">El campo criterio máximo es
           <strong>requerido</strong>
