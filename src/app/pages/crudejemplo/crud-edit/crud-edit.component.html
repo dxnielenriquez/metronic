@@ -1,5 +1,4 @@
-<div class="header">
-  <span class="header-title">{{ isNewUser ? 'Crear nueva' : 'Actualizar' }} encuesta</span>
+<div class="nav-link table-container">
   <div class="header-buttons-edit">
 
     <button type="button" class="btn btn-primary custom-button-edit " (click)="backRoute()">
@@ -11,9 +10,6 @@
       <span>{{ isNewUser ? 'Guardar' : 'Actualizar' }}</span>
     </button>
   </div>
-</div>
-
-<div class="nav-link table-container">
   <div class="m-4">
     <form class="my-form hint input-responsive" [formGroup]="form">
 
@@ -47,11 +43,11 @@
         </mat-error>
       </div>
 
-      <div class="fv-row mb-7 my-form-field">
+      <div class="fv-row mb-7 my-form-field w-100">
         <label class="col-lg-6 col-form-label required fw-bold fs-6"
         >Destinatario</label
         >
-        <div class="col-lg-3 fv-row">
+        <div class=" fv-row">
           <select
             class="form-select form-select-solid form-select-lg"
             name="currency"
