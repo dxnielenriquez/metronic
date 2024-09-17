@@ -23,26 +23,12 @@
 }
 
 //list
-.header-buttons .custom-button {
-  color: white;
-  background-color: #1B84FF;
-  border-radius: 8px;
-  padding: 10px 20px;
-  font-size: 1rem;
-  transition: background-color 0.3s ease;
-}
-
 //tablas headers fijos
 .sticky-header {
   position: sticky;
   top: 0;
   background: white;
   z-index: 10;
-}
-
-
-.header-buttons .custom-button:hover {
-  background-color: #b0bec5;
 }
 
 .table-container-wrapper mat-table {
@@ -58,19 +44,11 @@
 
 //edit
 .header-buttons-edit .custom-button-edit {
-  background-color: #1B84FF!important;
-  color: white;
   border-radius: 8px;
   padding: 10px 20px;
   font-size: 1rem;
   transition: background-color 0.3s ease;
   margin-right: 10px;
-}
-
-
-.header-buttons-edit .custom-button-edit:hover {
-  background-color: #b0bec5!important;
-
 }
 
 
@@ -86,4 +64,9 @@
   color: #ff6f61;
   text-align: center;
   padding: 20px;
+}
+
+
+.error {
+  color: red;
 }
