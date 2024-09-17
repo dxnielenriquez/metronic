@@ -46,6 +46,19 @@
       </div>
 
       <div class="fv-row mb-7 my-form-field">
+        <label class="col-form-label text-right col-lg-3 col-sm-12">Destinatario</label>
+        <div class="col-lg-4 col-md-9 col-sm-12 ">
+          <select class="form-control form-control-solid selectpicker " data-size="4" formControlName="role_id">
+            <option [value]="role.id" *ngFor="let role of roles">{{ role.name }}</option>
+          </select>
+        </div>
+        <!-- Mensaje de error -->
+        <mat-error class="error" *ngIf="isControlHasError('role_id', 'required')">
+          Debe seleccionar un <strong>destinatario</strong>.
+        </mat-error>
+      </div>
+
+      <div class="fv-row mb-7 my-form-field">
         <!-- Campo de Criterio mínimo -->
         <label class="required fw-semibold fs-6 mb-2">Criterio mínimo</label>
         <input type="text" class="form-control form-control-solid" formControlName="ponderacion_baja" maxlength="25" autocomplete="off" required />

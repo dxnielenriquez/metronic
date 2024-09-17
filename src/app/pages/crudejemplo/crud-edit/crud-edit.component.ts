@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {ChangeDetectorRef, Component, OnInit} from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import {CrudService} from "../crud.service";
@@ -26,6 +26,7 @@ export class CrudEditComponent implements OnInit {
     private _activatedRoute: ActivatedRoute,
     private _router: Router,
     private _toastService: ToastService,
+    private cdRef: ChangeDetectorRef
 
   ) {
     this._activeroute.params.subscribe(params => {
@@ -56,13 +57,14 @@ export class CrudEditComponent implements OnInit {
       destinatario: [""],
       ponderacion_baja: ["", [Validators.required]],
       ponderacion_alta: ["", [Validators.required]],
-      role_id: [1],
+      role_id: [null, Validators.required],
     });
   }
 
   destinatarios() {
     this._encuestaService.destinatarios().subscribe(res => {
       this.roles = res;
+      this.cdRef.detectChanges();
     });
   }
 
