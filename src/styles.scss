@@ -32,6 +32,15 @@
   transition: background-color 0.3s ease;
 }
 
+//tablas headers fijos
+.sticky-header {
+  position: sticky;
+  top: 0;
+  background: white;
+  z-index: 10;
+}
+
+
 .header-buttons .custom-button:hover {
   background-color: #b0bec5;
 }
@@ -68,4 +77,13 @@
 .header-title {
   font-size: 1.5rem;
   font-weight: bold;
+}
+
+
+//
+.not-results {
+  font-size: 1rem;
+  color: #ff6f61;
+  text-align: center;
+  padding: 20px;
 }
