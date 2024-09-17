@@ -27,8 +27,8 @@ export class LayoutDialogService {
         message: description,
         btnOk: btnTextCancel,
       },
-      panelClass: 'metronic-modal',  // Clase personalizada para aplicar estilos de Metronic
-      backdropClass: 'metronic-backdrop',  // Fondo personalizado si es necesario
+      panelClass: 'metronic-modal',
+      backdropClass: 'metronic-backdrop',
       disableClose: true, // Evitar que se cierre al hacer clic fuera del modal
     })
       .afterClosed()
