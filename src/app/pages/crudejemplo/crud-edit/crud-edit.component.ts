@@ -2,7 +2,6 @@ import {ChangeDetectorRef, Component, OnInit} from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import {CrudService} from "../crud.service";
-import {ToastService} from "../../../share/services/toast.service";
 import Swal from 'sweetalert2';
 
 @Component({
@@ -25,7 +24,6 @@ export class CrudEditComponent implements OnInit {
     private _encuestaService: CrudService,
     private _activatedRoute: ActivatedRoute,
     private _router: Router,
-    private _toastService: ToastService,
     private cdRef: ChangeDetectorRef
 
   ) {
