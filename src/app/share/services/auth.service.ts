@@ -7,9 +7,6 @@ import {HttpClient} from "@angular/common/http";
 export interface User{
   nombre : string;
   apellido_paterno : string;
-  CELULAR : string;
-  CENTRO_ID : string;
-  USUARIO_ID: number;
   tipo_usuario_id : number;
 }
 

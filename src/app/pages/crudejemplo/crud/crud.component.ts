@@ -3,7 +3,6 @@ import {ActivatedRoute, Router} from '@angular/router';
 import {MatTableDataSource} from "@angular/material/table";
 import {CrudService} from "../crud.service";
 import {User} from "../../../share/services/auth.service";
-import {LayoutUtilsService} from "../../../share/components/utils/layout-utils.service";
 import Swal from 'sweetalert2';
 
 @Component({
@@ -29,7 +28,6 @@ export class CrudComponent implements OnInit {
     private _userService: CrudService,
     private _router: Router,
     private _activatedRoute: ActivatedRoute,
-    private _layoutUtilsService: LayoutUtilsService,
 
   ) {
   }

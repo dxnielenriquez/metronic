@@ -3,12 +3,10 @@ import { inject } from '@angular/core';
 import { HttpErrorResponse } from '@angular/common/http';
 import { catchError, throwError } from 'rxjs';
 import { AuthService } from '../services/auth.service';
-import { ToastService } from '../services/toast.service';
 import { LayoutDialogService } from '../services/layout-dialog.service';
 
 export const errorInterceptor: HttpInterceptorFn = (req, next) => {
   const authService = inject(AuthService);
-  const toast = inject(ToastService);
   const layoutDialog = inject(LayoutDialogService);
 
   if (req.headers.get('noIntercept') === 'true') {
@@ -20,7 +18,7 @@ export const errorInterceptor: HttpInterceptorFn = (req, next) => {
       if (err instanceof HttpErrorResponse) {
         switch (err.status) {
           case 0:
-            unknownError(err, toast);
+            unknownError(err);
             break;
           case 401:
             unauthorized(err, authService, layoutDialog, req.responseType === 'blob');
@@ -32,7 +30,7 @@ export const errorInterceptor: HttpInterceptorFn = (req, next) => {
             unprocessableEntity(err, layoutDialog, req.responseType === 'blob');
             break;
           default:
-            toast.show('Error', err.message || 'Ocurrió un error');
+
         }
       }
       return throwError(() => null); // Retorna un error sin valor (null).
@@ -40,10 +38,9 @@ export const errorInterceptor: HttpInterceptorFn = (req, next) => {
   );
 };
 
-function unknownError(err: HttpErrorResponse, toast: ToastService) {
+function unknownError(err: HttpErrorResponse, ) {
   const title = err.error?.message || 'Error de conexión';
   const msg = err.message || 'Ocurrió un error';
-  toast.show(title, msg);
 }
 
 function unauthorized(

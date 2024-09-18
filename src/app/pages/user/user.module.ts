@@ -20,7 +20,6 @@ import {MatSort} from "@angular/material/sort";
 import {MatInput, MatInputModule} from "@angular/material/input";
 import {CrudModule} from "../crudejemplo/crud/crud.module";
 import {CrudEditComponent} from "../crudejemplo/crud-edit/crud-edit.component";
-import {ToastComponent} from "../../share/components/toast/toast.component";
 
 
 
@@ -44,7 +43,6 @@ import {ToastComponent} from "../../share/components/toast/toast.component";
     MatColumnDef,
     MatHeaderCellDef,
     MatCellDef,
-    ToastComponent,
 
     MatInput,
     MatFormFieldModule,
