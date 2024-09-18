@@ -1,7 +1,6 @@
 import {Component, Inject} from '@angular/core';
 import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material/dialog";
 import {MatButton} from "@angular/material/button";
-import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
 import {NgIf} from "@angular/common";
 import Swal, { SweetAlertIcon } from 'sweetalert2';
 
@@ -21,7 +20,7 @@ export class ModalAlertComponent {
   message: string;
   btnOk: string;
   btnCancel: string | undefined | null;
-  icon: SweetAlertIcon | undefined; // Ajusta el tipo de icono
+  icon: SweetAlertIcon | undefined;
 
   constructor(
     private _dialogRef: MatDialogRef<ModalAlertComponent>,
@@ -31,7 +30,7 @@ export class ModalAlertComponent {
     this.message = data.message || "Mensaje";
     this.btnOk = data.btnOk || "Aceptar";
     this.btnCancel = data.btnCancel || "Cancelar";
-    this.icon = data.icon; // Puede ser `undefined` o un valor válido
+    this.icon = data.icon;
 
     this.showAlert();
   }
@@ -40,9 +39,11 @@ export class ModalAlertComponent {
     Swal.fire({
       title: this.title,
       text: this.message,
-      icon: this.icon || 'info', // Proporciona un valor predeterminado
+      icon: this.icon || 'info',
       showCancelButton: !!this.btnCancel,
       confirmButtonText: this.btnOk,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
       cancelButtonText: this.btnCancel || undefined,
       customClass: {
         container: 'swal-container'
@@ -56,7 +57,4 @@ export class ModalAlertComponent {
     });
   }
 
-  closeDialog(result: boolean) {
-    this._dialogRef.close(result);
-  }
 }
