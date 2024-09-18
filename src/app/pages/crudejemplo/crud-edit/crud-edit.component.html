@@ -50,7 +50,7 @@
         <div class=" fv-row">
           <select
             class="form-select form-select-solid form-select-lg"
-            name="currency"
+            name="currency" formControlName="role_id"
           >
 
             <option value="">Selecciona un destinatario</option>
@@ -58,6 +58,9 @@
 
           </select>
         </div>
+        <mat-error class="error" *ngIf="isControlHasError('role_id', 'required')">
+          El campo destinatario es <strong>requerido</strong>.
+        </mat-error>
       </div>
 
       <div class="fv-row mb-7 my-form-field">
