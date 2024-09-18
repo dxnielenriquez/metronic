@@ -53,7 +53,7 @@ export class CrudEditComponent implements OnInit {
   crearFormulario() {
     this.form = this._fb.group({
       titulo: ["", [Validators.required, Validators.pattern(/^([ \u00c0-\u01ffa-zA-Z'])+$/)]],
-      descripcion: ["", [Validators.required, Validators.pattern(/^([ \u00c0-\u01ffa-zA-Z'])+$/)]],
+      descripcion: ["", [Validators.required, ]],
       destinatario: [""],
       ponderacion_baja: ["", [Validators.required]],
       ponderacion_alta: ["", [Validators.required]],

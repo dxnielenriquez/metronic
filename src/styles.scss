@@ -10,7 +10,7 @@
 @import "./assets/plugins/keenicons/duotone/style.css";
 @import "./assets/plugins/keenicons/outline/style.css";
 @import "./assets/plugins/keenicons/solid/style.css";
-
+@import "css/colors";
 
 .header {
   background-color: #1d3b6c;
@@ -69,4 +69,9 @@
 
 .error {
   color: red;
+}
+
+.boton {
+  background: var(--main-color)!important;
+  color: var(--color)!important;
 }

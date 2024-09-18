@@ -1,11 +1,11 @@
 <div class="nav-link table-container">
   <div class="header-buttons-edit">
 
-    <button type="button" class="btn btn-primary custom-button-edit " (click)="backRoute()">
+    <button type="button" class="btn boton custom-button-edit " (click)="backRoute()">
       Regresar
     </button>
 
-    <button type="button" class="btn btn-primary custom-button-edit" (click)="onSubmit()">
+    <button type="button" class="btn boton custom-button-edit" (click)="onSubmit()">
       <span class="menu-icon"> </span>
       <span>{{ isNewUser ? 'Guardar' : 'Actualizar' }}</span>
     </button>
@@ -37,9 +37,6 @@
         <mat-error class="error" *ngIf="isControlHasError('descripcion','required')">El campo
           descripción es
           <strong>requerido</strong>
-        </mat-error>
-        <mat-error class="error" *ngIf="isControlHasError('descripcion', 'pattern')">
-          No se aceptan números o caracteres especiales.
         </mat-error>
       </div>
 
