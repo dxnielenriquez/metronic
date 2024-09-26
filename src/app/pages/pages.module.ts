@@ -4,9 +4,9 @@ import {RouterLink, RouterModule, Routes} from '@angular/router';
 import {SharedModule} from 'src/app/_metronic/shared/shared.module';
 import {NgbCollapseModule, NgbDropdownModule, NgbNavModule, NgbTooltipModule} from '@ng-bootstrap/ng-bootstrap';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {CrudEditComponent} from "../crudejemplo/crud-edit/crud-edit.component";
-import {ShareModule} from "../../share/share.module";
-import {CrudComponent} from "../crudejemplo/crud/crud.component";
+import {CrudEditComponent} from "./crudejemplo/crud-edit/crud-edit.component";
+import {CrudComponent} from "./crudejemplo/crud/crud.component";
+import {ShareModule} from "../share/share.module";
 
 const routes: Routes = [
   {
