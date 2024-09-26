@@ -22,6 +22,8 @@ import {RouterLink} from "@angular/router";
 import {FormsModule} from "@angular/forms";
 import {SharedModule} from "../_metronic/shared/shared.module";
 import {SweetAlert2Module} from "@sweetalert2/ngx-sweetalert2";
+import {NgxPermissionsModule} from "ngx-permissions";
+import {DataTablesModule} from "angular-datatables";
 
 
 @NgModule({
@@ -58,6 +60,7 @@ import {SweetAlert2Module} from "@sweetalert2/ngx-sweetalert2";
     FormsModule,
     MatSortHeader,
     SweetAlert2Module.forChild(),
+    NgxPermissionsModule
 
   ],
   exports: [
@@ -90,6 +93,9 @@ import {SweetAlert2Module} from "@sweetalert2/ngx-sweetalert2";
     MatCellDef,
     FormsModule,
     MatSortHeader,
+    NgxPermissionsModule,
+    DataTablesModule
+
   ],
 })
 export class ShareModule {

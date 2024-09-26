@@ -8,7 +8,7 @@ const Routing: Routes = [
   },
   {
     path: 'catalogo',
-    loadChildren: () => import('./user/user.module').then((m) => m.UserModule),
+    loadChildren: () => import('./user/pages.module').then((m) => m.PagesModule),
   },
   {path: '', redirectTo: '/dashboard', pathMatch: 'full',},
   {path: '**', redirectTo: 'auth/login',},
