@@ -4,7 +4,6 @@ import {RouterLink, RouterModule, Routes} from '@angular/router';
 import {SharedModule} from 'src/app/_metronic/shared/shared.module';
 import {NgbCollapseModule, NgbDropdownModule, NgbNavModule, NgbTooltipModule} from '@ng-bootstrap/ng-bootstrap';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {SweetAlert2Module} from '@sweetalert2/ngx-sweetalert2';
 import {CrudModule} from "../crudejemplo/crud/crud.module";
 import {CrudEditComponent} from "../crudejemplo/crud-edit/crud-edit.component";
 import {ShareModule} from "../../share/share.module";
@@ -31,7 +30,6 @@ const routes: Routes = [
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
-    SweetAlert2Module,
     RouterLink,
     ShareModule,
     RouterModule.forChild(routes),
@@ -41,7 +39,6 @@ const routes: Routes = [
     NgbDropdownModule,
     NgbCollapseModule,
     NgbTooltipModule,
-    SweetAlert2Module.forChild(),
   ]
 })
 export class UserModule {

@@ -1,4 +1,4 @@
-import {importProvidersFrom, inject, NgModule, OnInit} from '@angular/core';
+import {importProvidersFrom,  NgModule } from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {HttpClientModule, provideHttpClient, withInterceptors} from '@angular/common/http';
@@ -7,7 +7,6 @@ import {InlineSVGModule} from 'ng-inline-svg-2';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
-import {SweetAlert2Module} from '@sweetalert2/ngx-sweetalert2';
 import {ReactiveFormsModule} from "@angular/forms";
 import {SharedModule} from "./_metronic/shared/shared.module";
 import {tokenInterceptor} from "./share/interceptors/token.interceptor";
@@ -29,7 +28,6 @@ import {NgxPermissionsModule} from "ngx-permissions";
     AppRoutingModule,
     InlineSVGModule.forRoot(),
     NgbModule,
-    SweetAlert2Module.forRoot(),
     ReactiveFormsModule,
     SharedModule,
     ShareModule
