@@ -1,6 +1,7 @@
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import {ChangeDetectionStrategy, Component, OnInit} from '@angular/core';
 import {ThemeModeService} from "./_metronic/partials/layout/theme-mode-switcher/theme-mode.service";
 import {NgxPermissionsService} from "ngx-permissions";
+import {AuthService} from "./share/services/auth.service";
 
 @Component({
 
@@ -10,16 +11,32 @@ import {NgxPermissionsService} from "ngx-permissions";
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AppComponent implements OnInit {
+
+  permissions: { [key: string]: boolean };
+
   constructor(
     private modeService: ThemeModeService,
-    private ngxPermissions: NgxPermissionsService
+    private ngxPermissions: NgxPermissionsService,
+    private authService: AuthService,
   ) {
-    // this.translationService.loadTranslations(
-    // );
   }
 
   ngOnInit() {
+
     this.modeService.init();
-    this.ngxPermissions.addPermission('ADMIN')
+    this.loadPermissions();
   }
+
+
+  loadPermissions() {
+    const perms = this.authService.getPermissions();
+    this.ngxPermissions.flushPermissions()
+    Object.keys(perms).forEach(key => {
+      if (perms[key]) {
+        this.ngxPermissions.addPermission(key);
+      }
+    })
+  }
+
+
 }

@@ -3,6 +3,7 @@ import {BehaviorSubject, Observable, Subscription, tap} from 'rxjs';
 import {environment} from 'src/environments/environment';
 import {Router} from '@angular/router';
 import {HttpClient} from "@angular/common/http";
+import {NgxPermissionsService} from "ngx-permissions";
 
 export interface User{
   nombre : string;
@@ -13,8 +14,16 @@ export interface User{
 export interface LoginResponse {
   token: string;
   user : User
-  role : Array<any>;
+  role : Role;
   expiration : number;
+}
+
+export interface Role {
+  id: number;
+  name: string;
+  permissions: {
+    [key: string]: boolean;
+  };
 }
 
 
@@ -30,6 +39,7 @@ export class AuthService implements OnDestroy {
   constructor(
     private router: Router,
     private httpClient: HttpClient,
+    private permissionsService: NgxPermissionsService
 
   ) {
     this.isLoadingSubject = new BehaviorSubject<boolean>(false);
@@ -51,6 +61,10 @@ export class AuthService implements OnDestroy {
 
   getUser(): User  {
     return this.getStorage()!.user;
+  }
+
+  getPermissions(): { [key: string]: boolean } {
+  return  this.getStorage()!.role.permissions;
   }
 
 

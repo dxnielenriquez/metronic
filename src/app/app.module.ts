@@ -30,7 +30,9 @@ import {NgxPermissionsModule} from "ngx-permissions";
     NgbModule,
     ReactiveFormsModule,
     SharedModule,
-    ShareModule
+    ShareModule,
+    NgxPermissionsModule.forRoot(),
+
 
   ],
   providers: [
