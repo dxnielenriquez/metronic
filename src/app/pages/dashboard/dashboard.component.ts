@@ -1,5 +1,5 @@
-import { Component, ViewChild } from '@angular/core';
-import { ModalConfig, ModalComponent } from '../../_metronic/partials';
+import {Component} from '@angular/core';
+import {} from '../../_metronic/partials';
 
 @Component({
   selector: 'app-dashboard',
@@ -9,6 +9,8 @@ import { ModalConfig, ModalComponent } from '../../_metronic/partials';
 export class DashboardComponent {
 
 
-  constructor() {}
+  constructor() {
+  }
+
 
 }
