@@ -4,7 +4,6 @@ import {MatTableDataSource} from "@angular/material/table";
 import {CrudService} from "../crud.service";
 import {User} from "../../../share/services/auth.service";
 import Swal from 'sweetalert2';
-
 @Component({
   selector: 'app-crud',
   templateUrl: './crud.component.html',
@@ -33,12 +32,14 @@ export class CrudComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.isLoading = true;
     this.getUsuarios()
     this.dataSourceUser = new MatTableDataSource<User>();
     this.dataSourceUser.data = [];
   }
 
   getUsuarios(): void {
+    this.isLoading = true;
     const sortBy = this.sortBy;
     const order = this.order;
     const page = this.page;
@@ -49,6 +50,7 @@ export class CrudComponent implements OnInit {
       this.dataSourceUser.data = res.data;
       this.total = res.total;
       this.totalPages = Math.ceil(this.total / this.perPage);
+      this.isLoading = false;
     });
   }
 
@@ -98,8 +100,6 @@ export class CrudComponent implements OnInit {
       }
     });
   }
-
-
 
   pageChange(newPage: number) {
     if (newPage >= 1 && newPage <= this.totalPages) {

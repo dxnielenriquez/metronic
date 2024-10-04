@@ -147,9 +147,10 @@ export class CrudEditComponent implements OnInit {
         Swal.fire({
           icon: 'error',
           title: 'Error',
-          text: 'Hubo un problema al actualizar el usuario. Por favor intenta de nuevo.',
+          text: err?.error?.message || 'Hubo un problema al actualizar el usuario. Por favor intenta de nuevo.'
         });
       }
     });
   }
+
 }
